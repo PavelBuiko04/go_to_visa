@@ -37,7 +37,6 @@
         <a href="#quiz" class="nav-link">Подбор визы</a>
         <a href="#help" class="nav-link">Как мы работаем</a>
         <a href="#reviews" class="nav-link">Отзывы</a>
-        <a href="#faq" class="nav-link">FAQ</a>
         <a href="#form" class="nav-link">Контакты</a>
       </nav>
       <div class="header-actions">
@@ -47,12 +46,20 @@
         <span></span><span></span><span></span>
       </button>
     </div>
+    <!-- Самолёт с баннером: летит справа налево, поверх header -->
+    <div class="airplane-banner" aria-hidden="true">
+      <img src="images/airplane-banner.png" alt="" width="400" height="120">
+    </div>
   </header>
 
   <main>
     <!-- Hero: иллюстрация городской панорамы, текст и описание -->
     <section class="hero-globe hero-light" id="hero">
-      <div class="hero-globe-bg" style="background-image: url('images/hero-cityscape.png');"></div>
+      <div class="hero-globe-bg">
+        <video class="hero-globe-video" autoplay muted loop playsinline>
+          <source src="videos/hero.mp4" type="video/mp4">
+        </video>
+      </div>
       <div class="hero-globe-overlay hero-globe-overlay-light"></div>
       <div class="hero-globe-inner container">
         <div class="hero-globe-content hero-globe-content-centered">
@@ -78,10 +85,6 @@
         <div class="stat">
           <span class="stat-value">Скидки</span>
           <span class="stat-label">от 3-х человек</span>
-        </div>
-        <div class="stat">
-          <span class="stat-value">Офис</span>
-          <span class="stat-label">рядом с метро</span>
         </div>
       </div>
     </section>
@@ -310,32 +313,6 @@
       </div>
     </section>
 
-    <!-- FAQ как на VizaProm -->
-    <section class="section faq-section" id="faq">
-      <div class="container">
-        <h2 class="section-title">FAQ</h2>
-        <div class="faq-list">
-          <div class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false">Чем отличается шенгенская виза (C) от национальной (D)?</button>
-            <div class="faq-answer">
-              <p>Шенгенская виза — краткосрочная, позволяет находиться в странах Шенгена до 90 дней в течение 6 месяцев. Национальная виза (D) — долгосрочная, для работы или учёбы в конкретной стране.</p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false">Нужно ли приводить ребёнка в консульство для подачи на визу?</button>
-            <div class="faq-answer">
-              <p>Документы несовершеннолетних подаёт родитель или доверенное лицо. Детей до 12 лет приводить не нужно; с 12 до 18 лет — один раз в пять лет для снятия отпечатков.</p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false">Какие документы нужны для получения визы?</button>
-            <div class="faq-answer">
-              <p>Зависит от типа визы и страны. Обязательны: паспорт, фото, страховка и документы, подтверждающие цель поездки. Мы запишем вас в ВЦ/консульство и подготовим пакет под вашу ситуацию.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <!-- Footer -->
