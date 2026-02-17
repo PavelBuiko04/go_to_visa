@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Каталог виз — Go to Visa">
+  <title>Каталог — Go to Visa</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Go to Visa — на главную">
+        <svg class="logo-svg" viewBox="0 0 140 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <text class="logo-text logo-go" x="2" y="26" fill="currentColor">Go to</text>
+          <text class="logo-text logo-visa" x="0" y="56" fill="#2563EB">Visa</text>
+        </svg>
+      </a>
+      <nav class="nav">
+        <a href="index.html#hero" class="nav-link">Главная</a>
+        <a href="catalog.html" class="nav-link active">Каталог</a>
+        <a href="index.html#quiz" class="nav-link">Подбор визы</a>
+        <a href="index.html#help" class="nav-link">Как мы работаем</a>
+        <a href="index.html#reviews" class="nav-link">Отзывы</a>
+        <a href="index.html#faq" class="nav-link">FAQ</a>
+        <a href="index.html#form" class="nav-link">Контакты</a>
+      </nav>
+      <div class="header-actions">
+        <a href="tel:+375441234567" class="header-phone" title="Позвонить">+375 (44) 123-45-67</a>
+      </div>
+      <button class="burger" id="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section catalog-section" style="padding-top: 120px;">
+      <div class="container">
+        <h1 class="section-title catalog-title" style="font-family: 'Caveat', 'Caveat Brush', cursive; font-size: clamp(2rem, 4vw, 2.8rem); color: var(--blue);">Каталог виз</h1>
+        <p class="section-subtitle catalog-subtitle">Листайте страницы или выбирайте страну по закладкам</p>
+
+        <div class="notebook-wrap">
+          <div class="notebook-spine"></div>
+
+          <div class="notebook-tabs">
+            <button type="button" class="notebook-tab active" data-page="0" aria-label="Польша">Польша</button>
+            <button type="button" class="notebook-tab" data-page="1" aria-label="Италия">Италия</button>
+            <button type="button" class="notebook-tab" data-page="2" aria-label="Испания">Испания</button>
+            <button type="button" class="notebook-tab" data-page="3" aria-label="Греция">Греция</button>
+            <button type="button" class="notebook-tab" data-page="4" aria-label="Германия">Германия</button>
+            <button type="button" class="notebook-tab" data-page="5" aria-label="Франция">Франция</button>
+          </div>
+
+          <div class="notebook-book">
+            <div class="notebook-pages-viewport">
+              <div class="notebook-pages-track">
+              <div class="notebook-spread current" data-spread="0">
+              <div class="notebook-page notebook-page-left">
+                <h2 class="notebook-country">Польша</h2>
+                <div class="notebook-image" style="background-image: url('https://images.unsplash.com/photo-1605649487212-47bdab064df7?auto=format&fit=crop&w=600');"></div>
+              </div>
+              <div class="notebook-page notebook-page-right">
+                <h3 class="notebook-info-title">Информация о визе</h3>
+                <dl class="notebook-info-list">
+                  <dt>Тип визы</dt>
+                  <dd>Туристическая, рабочая, гостевая, карта поляка</dd>
+                  <dt>Срок</dt>
+                  <dd>до 14 дней</dd>
+                  <dt>Стоимость</dt>
+                  <dd><strong>от 300 BYN</strong></dd>
+                </dl>
+                <a href="index.html#form" class="btn btn-gradient">Оставить заявку</a>
+              </div>
+            </div>
+            <div class="notebook-spread" data-spread="1">
+              <div class="notebook-page notebook-page-left">
+                <h2 class="notebook-country">Италия</h2>
+                <div class="notebook-image" style="background-image: url('https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=600');"></div>
+              </div>
+              <div class="notebook-page notebook-page-right">
+                <h3 class="notebook-info-title">Информация о визе</h3>
+                <dl class="notebook-info-list">
+                  <dt>Тип визы</dt>
+                  <dd>Туристическая, гостевая, запись в ВЦ</dd>
+                  <dt>Срок</dt>
+                  <dd>до 14 дней</dd>
+                  <dt>Стоимость</dt>
+                  <dd><strong>от 400 BYN</strong></dd>
+                </dl>
+                <a href="index.html#form" class="btn btn-gradient">Оставить заявку</a>
+              </div>
+            </div>
+            <div class="notebook-spread" data-spread="2">
+              <div class="notebook-page notebook-page-left">
+                <h2 class="notebook-country">Испания</h2>
+                <div class="notebook-image" style="background-image: url('https://images.unsplash.com/photo-1543785734-4b6e564642f8?auto=format&fit=crop&w=600');"></div>
+              </div>
+              <div class="notebook-page notebook-page-right">
+                <h3 class="notebook-info-title">Информация о визе</h3>
+                <dl class="notebook-info-list">
+                  <dt>Тип визы</dt>
+                  <dd>Туристическая, гостевая, деловая, учебная</dd>
+                  <dt>Срок</dt>
+                  <dd>до 45 дней</dd>
+                  <dt>Стоимость</dt>
+                  <dd><strong>от 450 BYN</strong></dd>
+                </dl>
+                <a href="index.html#form" class="btn btn-gradient">Оставить заявку</a>
+              </div>
+            </div>
+            <div class="notebook-spread" data-spread="3">
+              <div class="notebook-page notebook-page-left">
+                <h2 class="notebook-country">Греция</h2>
+                <div class="notebook-image" style="background-image: url('https://images.unsplash.com/photo-1533105077500-3bcd1cd92e10?auto=format&fit=crop&w=600');"></div>
+              </div>
+              <div class="notebook-page notebook-page-right">
+                <h3 class="notebook-info-title">Информация о визе</h3>
+                <dl class="notebook-info-list">
+                  <dt>Тип визы</dt>
+                  <dd>Туристическая, гостевая, деловая</dd>
+                  <dt>Срок</dt>
+                  <dd>до 20 дней</dd>
+                  <dt>Стоимость</dt>
+                  <dd><strong>от 350 BYN</strong></dd>
+                </dl>
+                <a href="index.html#form" class="btn btn-gradient">Оставить заявку</a>
+              </div>
+            </div>
+            <div class="notebook-spread" data-spread="4">
+              <div class="notebook-page notebook-page-left">
+                <h2 class="notebook-country">Германия</h2>
+                <div class="notebook-image" style="background-image: url('https://images.unsplash.com/photo-1560930950-5cc20e80e392?auto=format&fit=crop&w=600');"></div>
+              </div>
+              <div class="notebook-page notebook-page-right">
+                <h3 class="notebook-info-title">Информация о визе</h3>
+                <dl class="notebook-info-list">
+                  <dt>Тип визы</dt>
+                  <dd>Туристическая, гостевая, деловая, рабочая</dd>
+                  <dt>Срок</dt>
+                  <dd>до 10 дней</dd>
+                  <dt>Стоимость</dt>
+                  <dd><strong>от 450 BYN</strong></dd>
+                </dl>
+                <a href="index.html#form" class="btn btn-gradient">Оставить заявку</a>
+              </div>
+            </div>
+            <div class="notebook-spread" data-spread="5">
+              <div class="notebook-page notebook-page-left">
+                <h2 class="notebook-country">Франция</h2>
+                <div class="notebook-image" style="background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600');"></div>
+              </div>
+              <div class="notebook-page notebook-page-right">
+                <h3 class="notebook-info-title">Информация о визе</h3>
+                <dl class="notebook-info-list">
+                  <dt>Тип визы</dt>
+                  <dd>Туристическая, гостевая, деловая, рабочая</dd>
+                  <dt>Срок</dt>
+                  <dd>около 10 дней</dd>
+                  <dt>Стоимость</dt>
+                  <dd><strong>от 400 BYN</strong></dd>
+                </dl>
+                <a href="index.html#form" class="btn btn-gradient">Оставить заявку</a>
+              </div>
+            </div>
+            </div>
+            </div>
+          </div>
+
+          <div class="notebook-nav">
+            <button type="button" class="notebook-nav-btn notebook-prev" aria-label="Предыдущая страница" disabled>‹</button>
+            <span class="notebook-page-indicator">1 / 6</span>
+            <button type="button" class="notebook-nav-btn notebook-next" aria-label="Следующая страница">›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-links">
+        <a href="#">Политика обработки персональных данных</a>
+      </p>
+      <p class="footer-copy">© Визовый центр. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/catalog.js"></script>
+</body>
+</html>

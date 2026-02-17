@@ -1,0 +1,17 @@
+{
+  "name": "visa_igor",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "favicons": "node scripts/generate-favicons.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "sharp": "^0.34.5",
+    "to-ico": "^1.1.5"
+  }
+}
