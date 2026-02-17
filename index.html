@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Визовый центр. Помогаем открыть рабочую, студенческую, туристическую визы — от подачи документов до визы в паспорте.">
+  <meta name="keywords" content="виза, шенген, визовый центр, оформление визы, туристическая виза">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Визовый центр — визы от подачи до результата">
+  <meta property="og:description" content="Помогаем открыть рабочую, студенческую, туристическую визы. Работаем по всей стране.">
+  <meta property="og:type" content="website">
+  <title>Визовый центр — визы от подачи документов до визы в паспорте</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header: прозрачный над Hero, как GLOBE EXPRESS -->
+  <header class="header header-transparent header-over-light" id="header">
+    <div class="container header-inner">
+      <a href="#" class="logo" aria-label="Go to Visa — на главную">
+        <svg class="logo-svg" viewBox="0 0 140 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <text class="logo-text logo-go" x="2" y="26" fill="currentColor">Go to</text>
+          <text class="logo-text logo-visa" x="0" y="56" fill="#2563EB">Visa</text>
+        </svg>
+      </a>
+      <nav class="nav">
+        <a href="#hero" class="nav-link active">Главная</a>
+        <a href="catalog.html" class="nav-link">Каталог</a>
+        <a href="#quiz" class="nav-link">Подбор визы</a>
+        <a href="#help" class="nav-link">Как мы работаем</a>
+        <a href="#reviews" class="nav-link">Отзывы</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+        <a href="#form" class="nav-link">Контакты</a>
+      </nav>
+      <div class="header-actions">
+        <a href="tel:+375441234567" class="header-phone" title="Позвонить">+375 (44) 123-45-67</a>
+      </div>
+      <button class="burger" id="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero: иллюстрация городской панорамы, текст и описание -->
+    <section class="hero-globe hero-light" id="hero">
+      <div class="hero-globe-bg" style="background-image: url('images/hero-cityscape.png');"></div>
+      <div class="hero-globe-overlay hero-globe-overlay-light"></div>
+      <div class="hero-globe-inner container">
+        <div class="hero-globe-content hero-globe-content-centered">
+          <p class="hero-globe-subtitle hero-globe-brand">Визовые гуру <span class="hero-brand-go">Go to</span> <span class="hero-brand-visa">Visa</span></p>
+          <h1 class="hero-globe-title">Визы в Европу и Мир</h1>
+          <p class="hero-globe-text">Сопровождаем до получения визы в паспорте — надёжно и без лишней суеты</p>
+          <a href="#form" class="btn-hero btn-hero-dark">Получить консультацию</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Статистика под Hero -->
+    <section class="hero-stats-bar">
+      <div class="container hero-stats-inner">
+        <div class="stat">
+          <span class="stat-value">8+</span>
+          <span class="stat-label">лет на рынке</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value stat-purple">53 000+</span>
+          <span class="stat-label">открытых виз</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">Скидки</span>
+          <span class="stat-label">от 3-х человек</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">Офис</span>
+          <span class="stat-label">рядом с метро</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Квиз: подбор визы -->
+    <section class="section quiz-section" id="quiz">
+      <div class="container">
+        <div class="quiz-wrap">
+          <div class="quiz-progress" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="6">
+            <div class="quiz-progress-bar" style="width: 16.67%;"></div>
+            <span class="quiz-progress-text">1 из 6</span>
+          </div>
+          <div class="quiz-slides">
+            <!-- Слайд 1: Страны Шенгена -->
+            <div class="quiz-slide active" data-slide="1">
+              <h2 class="quiz-title">В какие страны Шенгена вы планируете поездку?</h2>
+              <div class="quiz-options quiz-options-checkbox quiz-options-countries">
+                <label class="quiz-option"><input type="checkbox" name="countries" value="Италия"><span>Италия</span></label>
+                <label class="quiz-option"><input type="checkbox" name="countries" value="Испания"><span>Испания</span></label>
+                <label class="quiz-option"><input type="checkbox" name="countries" value="Греция"><span>Греция</span></label>
+                <label class="quiz-option"><input type="checkbox" name="countries" value="Польша"><span>Польша</span></label>
+                <label class="quiz-option"><input type="checkbox" name="countries" value="Франция"><span>Франция</span></label>
+                <label class="quiz-option"><input type="checkbox" name="countries" value="Германия"><span>Германия</span></label>
+                <label class="quiz-option quiz-option-other"><input type="checkbox" name="countries" value="other"><span>Другая страна</span></label>
+                <div class="quiz-other-input-wrap" style="display:none;">
+                  <input type="text" class="quiz-other-input" name="countries_other" placeholder="Укажите свой вариант">
+                </div>
+              </div>
+            </div>
+            <!-- Слайд 2: Количество человек -->
+            <div class="quiz-slide" data-slide="2">
+              <h2 class="quiz-title">Сколько человек планируют поездку, включая вас?</h2>
+              <div class="quiz-options quiz-options-radio quiz-options-people">
+                <label class="quiz-option quiz-option-img"><input type="radio" name="people" value="1"><img src="images/quiz-people-1.png" alt="1 человек"><span>Только я</span></label>
+                <label class="quiz-option quiz-option-img"><input type="radio" name="people" value="2"><img src="images/quiz-people-2.png" alt="2 человека"><span>2 человека</span></label>
+                <label class="quiz-option quiz-option-img"><input type="radio" name="people" value="3-4"><img src="images/quiz-people-3-4.png" alt="3–4 человека"><span>3–4 человека</span></label>
+                <label class="quiz-option quiz-option-img"><input type="radio" name="people" value="5+"><img src="images/quiz-people-5.png" alt="5+ человек"><span>Компания от 5 человек</span></label>
+                <label class="quiz-option quiz-option-img quiz-option-other"><input type="radio" name="people" value="other"><img src="images/quiz-people-custom.png" alt="Свой вариант"><span>Свой вариант</span></label>
+                <div class="quiz-other-input-wrap" style="display:none;">
+                  <input type="text" class="quiz-other-input" name="people_other" placeholder="Укажите свой вариант">
+                </div>
+              </div>
+            </div>
+            <!-- Слайд 3: Шенген за 3 года -->
+            <div class="quiz-slide" data-slide="3">
+              <h2 class="quiz-title">Были ли у вас шенгенские визы за последние 3 года?</h2>
+              <div class="quiz-options quiz-options-radio">
+                <label class="quiz-option"><input type="radio" name="visa_3y" value="no"><span>Нет, это будет первая виза</span></label>
+                <label class="quiz-option quiz-option-trigger"><input type="radio" name="visa_3y" value="yes"><span>Да, виза была</span></label>
+              </div>
+              <div class="quiz-subblock" id="quiz-visa-country" style="display:none;">
+                <p class="quiz-subtitle">Шенгенская виза какой страны была у вас ранее?</p>
+                <p class="quiz-hint">*Отметьте один или несколько вариантов</p>
+                <div class="quiz-options quiz-options-checkbox">
+                  <label class="quiz-option"><input type="checkbox" name="visa_country" value="Италия"><span>Итальянский шенген</span></label>
+                  <label class="quiz-option"><input type="checkbox" name="visa_country" value="Испания"><span>Испанский шенген</span></label>
+                  <label class="quiz-option"><input type="checkbox" name="visa_country" value="Греция"><span>Греческий шенген</span></label>
+                  <label class="quiz-option"><input type="checkbox" name="visa_country" value="Франция"><span>Французский шенген</span></label>
+                  <label class="quiz-option"><input type="checkbox" name="visa_country" value="Польша"><span>Польский шенген</span></label>
+                  <label class="quiz-option"><input type="checkbox" name="visa_country" value="Германия"><span>Немецкий шенген</span></label>
+                  <label class="quiz-option quiz-option-other"><input type="checkbox" name="visa_country" value="other"><span>Свой вариант</span></label>
+                  <div class="quiz-other-input-wrap" style="display:none;">
+                    <input type="text" class="quiz-other-input" name="visa_country_other" placeholder="Укажите свой вариант">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Слайд 4: Посещённые страны -->
+            <div class="quiz-slide" data-slide="4">
+              <h2 class="quiz-title">Какие страны Европы вы уже посетили по визе?</h2>
+              <div class="quiz-options quiz-options-checkbox">
+                <label class="quiz-option"><input type="checkbox" name="visited" value="Италия"><span>Италия</span></label>
+                <label class="quiz-option"><input type="checkbox" name="visited" value="Испания"><span>Испания</span></label>
+                <label class="quiz-option"><input type="checkbox" name="visited" value="Греция"><span>Греция</span></label>
+                <label class="quiz-option"><input type="checkbox" name="visited" value="Франция"><span>Франция</span></label>
+                <label class="quiz-option"><input type="checkbox" name="visited" value="Германия"><span>Германия</span></label>
+                <label class="quiz-option"><input type="checkbox" name="visited" value="Польша"><span>Польша</span></label>
+                <label class="quiz-option quiz-option-other"><input type="checkbox" name="visited" value="other"><span>Свой вариант</span></label>
+                <div class="quiz-other-input-wrap" style="display:none;">
+                  <input type="text" class="quiz-other-input" name="visited_other" placeholder="Укажите свой вариант">
+                </div>
+              </div>
+            </div>
+            <!-- Слайд 5: Когда выезд -->
+            <div class="quiz-slide" data-slide="5">
+              <h2 class="quiz-title">Когда вы планируете первый выезд?</h2>
+              <div class="quiz-options quiz-options-radio quiz-options-when">
+                <label class="quiz-option"><input type="radio" name="when" value="urgent"><span>СРОЧНО (менее, чем через 2 недели)</span></label>
+                <label class="quiz-option"><input type="radio" name="when" value="2-4"><span>В ближайшее время (через 2–4 недели)</span></label>
+                <label class="quiz-option"><input type="radio" name="when" value="1-3m"><span>Планирую заранее (через 1–3 месяца)</span></label>
+                <label class="quiz-option"><input type="radio" name="when" value="undecided"><span>Пока только изучаю варианты (дата не определена)</span></label>
+                <label class="quiz-option quiz-option-other"><input type="radio" name="when" value="other"><span>Укажите точную дату</span></label>
+                <div class="quiz-other-input-wrap" style="display:none;">
+                  <input type="text" class="quiz-other-input" name="when_other" placeholder="Укажите дату выезда">
+                </div>
+              </div>
+            </div>
+            <!-- Слайд 6: Контакты -->
+            <div class="quiz-slide quiz-slide-form" data-slide="6">
+              <h2 class="quiz-title">Отлично! Персональный расчёт почти готов.</h2>
+              <p class="quiz-desc">Чтобы наш менеджер смог отправить вам подборку оптимальных вариантов по срокам и стоимости, оставьте ваши контактные данные.</p>
+              <form class="quiz-form form" id="quiz-form" data-form="quiz">
+                <input type="text" name="name" placeholder="Ваше имя" required>
+                <input type="tel" name="phone" placeholder="+375 (00) 000-00-00" required>
+                <p class="form-privacy">В соответствии с законом о защите персональных данных, оставляя свой контакт, вы даёте согласие на обработку.</p>
+                <button type="submit" class="btn btn-gradient btn-block" id="quiz-submit-btn" disabled>Отправить</button>
+              </form>
+            </div>
+          </div>
+          <div class="quiz-nav">
+            <button type="button" class="btn btn-outline quiz-btn-prev" disabled aria-label="Назад">Назад</button>
+            <button type="button" class="btn btn-gradient quiz-btn-next" aria-label="Дальше">Дальше</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Как проходит работа -->
+    <section class="section help-section" id="help">
+      <div class="help-block">
+        <div class="container">
+          <h2 class="help-title help-title-script">Как проходит работа</h2>
+          <div class="help-grid-steps">
+            <div class="help-steps-lines" aria-hidden="true">
+              <span class="help-line help-line-h1"></span>
+              <span class="help-line help-line-v"></span>
+              <span class="help-line help-line-h2"></span>
+            </div>
+            <article class="help-item help-step help-step-1">
+              <span class="help-step-num">1</span>
+              <div class="help-step-img-wrap">
+                <img src="images/help-step-1.png" alt="Консультация" class="help-step-img">
+              </div>
+              <div class="help-step-content">
+                <h3 class="help-item-title">Консультация</h3>
+                <p class="help-item-text">Разбираем вашу ситуацию и определяем тип визы.</p>
+              </div>
+            </article>
+            <article class="help-item help-step help-step-2">
+              <span class="help-step-num">2</span>
+              <div class="help-step-img-wrap">
+                <img src="images/help-step-2.png" alt="Запись на подачу" class="help-step-img">
+              </div>
+              <div class="help-step-content">
+                <h3 class="help-item-title">Запись на подачу</h3>
+                <p class="help-item-text">Помогаем с регистрацией и контролируем сроки.</p>
+              </div>
+            </article>
+            <article class="help-item help-step help-step-4">
+              <span class="help-step-num">4</span>
+              <div class="help-step-img-wrap">
+                <img src="images/help-step-4.png" alt="Поддержка" class="help-step-img">
+              </div>
+              <div class="help-step-content">
+                <h3 class="help-item-title">Поддержка</h3>
+                <p class="help-item-text">Остаёмся на связи до получения визы.</p>
+              </div>
+            </article>
+            <article class="help-item help-step help-step-3">
+              <span class="help-step-num">3</span>
+              <div class="help-step-img-wrap">
+                <img src="images/help-step-3.png" alt="Подготовка документов" class="help-step-img">
+              </div>
+              <div class="help-step-content">
+                <h3 class="help-item-title">Подготовка пакета документов</h3>
+                <p class="help-item-text">Заполняем анкеты, формируем индивидуальный комплект документов.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Почему нам доверяют -->
+    <section class="section trust-section" id="reviews">
+      <div class="container">
+        <h2 class="section-title">Почему нам доверяют</h2>
+        <p class="trust-subtitle">Мы не обещаем невозможного. Мы готовим правильно.</p>
+        <ul class="trust-list">
+          <li class="trust-item">Проверяем документы по актуальным требованиям</li>
+          <li class="trust-item">Говорим честно о рисках</li>
+          <li class="trust-item">Помогаем выбрать правильный тип визы</li>
+          <li class="trust-item">Поддерживаем до подачи</li>
+        </ul>
+        <p class="trust-cta">Наша задача — чтобы вы пришли на подачу уверенно.</p>
+        <div class="trust-reviews-wrap">
+          <h3 class="trust-reviews-title">Отзывы</h3>
+          <div class="reviews-grid">
+          <blockquote class="review-card">
+            <p class="review-text">Очень благодарна за помощь с шенгенской визой. Всё объяснили по шагам, документы проверили — получила визу с первого раза.</p>
+            <cite class="review-author">Анна К.</cite>
+          </blockquote>
+          <blockquote class="review-card">
+            <p class="review-text">Нужна была виза в UK срочно. Сопроводили от начала до конца, без лишней суеты. Рекомендую.</p>
+            <cite class="review-author">Дмитрий М.</cite>
+          </blockquote>
+          <blockquote class="review-card">
+            <p class="review-text">После двух отказов обратился сюда. Разобрали причины, подготовили новый пакет — визу одобрили.</p>
+            <cite class="review-author">Елена С.</cite>
+          </blockquote>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Контакты / Оставьте заявку -->
+    <section class="section contact-section" id="form">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-left">
+            <h2 class="contact-title">Связаться с нами</h2>
+            <p class="contact-telegram">
+              <span class="contact-telegram-label">Telegram</span>
+              <a href="https://t.me/go_to_visa" target="_blank" rel="noopener" class="contact-telegram-link">@go_to_visa</a>
+            </p>
+          </div>
+          <form class="form form-lead" id="contact-form" data-form="lead" action="#" method="post">
+            <input type="text" name="name" placeholder="Ваше имя" required>
+            <input type="tel" name="phone" placeholder="+375 (__) ___-__-__" required>
+            <input type="text" name="telegram" placeholder="Telegram (необязательно)" autocomplete="off">
+            <textarea name="message" placeholder="Сообщение (необязательно)" rows="3"></textarea>
+            <p class="form-privacy">Оставляя заявку, вы даёте согласие на обработку персональных данных.</p>
+            <button type="submit" class="btn btn-gradient btn-block">Отправить заявку</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ как на VizaProm -->
+    <section class="section faq-section" id="faq">
+      <div class="container">
+        <h2 class="section-title">FAQ</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">Чем отличается шенгенская виза (C) от национальной (D)?</button>
+            <div class="faq-answer">
+              <p>Шенгенская виза — краткосрочная, позволяет находиться в странах Шенгена до 90 дней в течение 6 месяцев. Национальная виза (D) — долгосрочная, для работы или учёбы в конкретной стране.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">Нужно ли приводить ребёнка в консульство для подачи на визу?</button>
+            <div class="faq-answer">
+              <p>Документы несовершеннолетних подаёт родитель или доверенное лицо. Детей до 12 лет приводить не нужно; с 12 до 18 лет — один раз в пять лет для снятия отпечатков.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">Какие документы нужны для получения визы?</button>
+            <div class="faq-answer">
+              <p>Зависит от типа визы и страны. Обязательны: паспорт, фото, страховка и документы, подтверждающие цель поездки. Мы запишем вас в ВЦ/консульство и подготовим пакет под вашу ситуацию.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-links">
+        <a href="#">Политика обработки персональных данных</a>
+      </p>
+      <p class="footer-copy">© Визовый центр. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
