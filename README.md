@@ -3,7 +3,8 @@
 > Landing page for a visa center with an interactive quiz, visa catalog, and lead capture via Google Forms
 
 <p align="center">
-  <strong>Portfolio project</strong> · HTML · CSS · JavaScript · Responsive layout
+  <a href="https://pavelbuiko04.github.io/go_to_visa/"><strong>Live Demo →</strong></a><br>
+  <sub>Portfolio project · HTML · CSS · JavaScript · Responsive layout</sub>
 </p>
 
 ---
