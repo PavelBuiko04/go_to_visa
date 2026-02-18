@@ -31,8 +31,7 @@
         <a href="index.html#quiz" class="nav-link">Подбор визы</a>
         <a href="index.html#help" class="nav-link">Как мы работаем</a>
         <a href="index.html#reviews" class="nav-link">Отзывы</a>
-        <a href="index.html#faq" class="nav-link">FAQ</a>
-        <a href="index.html#form" class="nav-link">Контакты</a>
+        <a href="#form" class="nav-link">Контакты</a>
       </nav>
       <div class="header-actions">
         <a href="tel:+375441234567" class="header-phone" title="Позвонить">+375 (44) 123-45-67</a>
@@ -46,141 +45,127 @@
   <main>
     <section class="section catalog-section" style="padding-top: 120px;">
       <div class="container">
-        <h1 class="section-title catalog-title" style="font-family: 'Caveat', 'Caveat Brush', cursive; font-size: clamp(2rem, 4vw, 2.8rem); color: var(--blue);">Каталог виз</h1>
-        <p class="section-subtitle catalog-subtitle">Листайте страницы или выбирайте страну по закладкам</p>
+        <h1 class="section-title catalog-title" style="font-family: 'Caveat', 'Caveat Brush', cursive; font-size: clamp(2.8rem, 6vw, 4rem); color: var(--blue);">Каталог виз</h1>
+        <p class="section-subtitle catalog-subtitle">Выберите страну для оформления визы</p>
 
-        <div class="notebook-wrap">
-          <div class="notebook-spine"></div>
+        <div class="catalog-grid">
+          <article class="catalog-card">
+            <div class="catalog-card-illustration">
+              <img src="images/catalog-sagrada.png" alt="Испания" class="catalog-card-image">
+            </div>
+            <div class="catalog-card-body">
+              <h2 class="catalog-card-country">Испания</h2>
+              <div class="catalog-card-block">
+                <h4 class="catalog-card-block-title">Тип визы</h4>
+                <p class="catalog-card-block-text">Туристическая<br>Гостевая<br>Деловая<br>Учебная</p>
+              </div>
+              <div class="catalog-card-block">
+                <h4 class="catalog-card-block-title">Срок рассмотрения</h4>
+                <p class="catalog-card-block-text">до 45 дней</p>
+              </div>
+              <a href="#form" class="catalog-card-btn">Оставить заявку</a>
+            </div>
+          </article>
 
-          <div class="notebook-tabs">
-            <button type="button" class="notebook-tab active" data-page="0" aria-label="Польша">Польша</button>
-            <button type="button" class="notebook-tab" data-page="1" aria-label="Италия">Италия</button>
-            <button type="button" class="notebook-tab" data-page="2" aria-label="Испания">Испания</button>
-            <button type="button" class="notebook-tab" data-page="3" aria-label="Греция">Греция</button>
-            <button type="button" class="notebook-tab" data-page="4" aria-label="Германия">Германия</button>
-            <button type="button" class="notebook-tab" data-page="5" aria-label="Франция">Франция</button>
-          </div>
+          <article class="catalog-card">
+            <div class="catalog-card-illustration">
+              <img src="images/catalog-colosseum.png" alt="Греция" class="catalog-card-image">
+            </div>
+            <div class="catalog-card-body">
+              <h2 class="catalog-card-country">Греция</h2>
+              <div class="catalog-card-block">
+                <h4 class="catalog-card-block-title">Тип визы</h4>
+                <p class="catalog-card-block-text">Туристическая<br>Гостевая<br>Деловая</p>
+              </div>
+              <div class="catalog-card-block">
+                <h4 class="catalog-card-block-title">Срок рассмотрения</h4>
+                <p class="catalog-card-block-text">до 20 дней</p>
+              </div>
+              <a href="#form" class="catalog-card-btn">Оставить заявку</a>
+            </div>
+          </article>
 
-          <div class="notebook-book">
-            <div class="notebook-pages-viewport">
-              <div class="notebook-pages-track">
-              <div class="notebook-spread current" data-spread="0">
-              <div class="notebook-page notebook-page-left">
-                <h2 class="notebook-country">Польша</h2>
-                <div class="notebook-image" style="background-image: url('https://images.unsplash.com/photo-1605649487212-47bdab064df7?auto=format&fit=crop&w=600');"></div>
-              </div>
-              <div class="notebook-page notebook-page-right">
-                <h3 class="notebook-info-title">Информация о визе</h3>
-                <dl class="notebook-info-list">
-                  <dt>Тип визы</dt>
-                  <dd>Туристическая, рабочая, гостевая, карта поляка</dd>
-                  <dt>Срок</dt>
-                  <dd>до 14 дней</dd>
-                  <dt>Стоимость</dt>
-                  <dd><strong>от 300 BYN</strong></dd>
-                </dl>
-                <a href="index.html#form" class="btn btn-gradient">Оставить заявку</a>
-              </div>
+          <article class="catalog-card">
+            <div class="catalog-card-illustration">
+              <img src="images/catalog-temple.png" alt="Италия" class="catalog-card-image">
             </div>
-            <div class="notebook-spread" data-spread="1">
-              <div class="notebook-page notebook-page-left">
-                <h2 class="notebook-country">Италия</h2>
-                <div class="notebook-image" style="background-image: url('https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=600');"></div>
+            <div class="catalog-card-body">
+              <h2 class="catalog-card-country">Италия</h2>
+              <div class="catalog-card-block">
+                <h4 class="catalog-card-block-title">Тип визы</h4>
+                <p class="catalog-card-block-text">Туристическая<br>Гостевая<br>Деловая</p>
               </div>
-              <div class="notebook-page notebook-page-right">
-                <h3 class="notebook-info-title">Информация о визе</h3>
-                <dl class="notebook-info-list">
-                  <dt>Тип визы</dt>
-                  <dd>Туристическая, гостевая, запись в ВЦ</dd>
-                  <dt>Срок</dt>
-                  <dd>до 14 дней</dd>
-                  <dt>Стоимость</dt>
-                  <dd><strong>от 400 BYN</strong></dd>
-                </dl>
-                <a href="index.html#form" class="btn btn-gradient">Оставить заявку</a>
+              <div class="catalog-card-block">
+                <h4 class="catalog-card-block-title">Срок рассмотрения</h4>
+                <p class="catalog-card-block-text">до 14 дней</p>
               </div>
+              <a href="#form" class="catalog-card-btn">Оставить заявку</a>
             </div>
-            <div class="notebook-spread" data-spread="2">
-              <div class="notebook-page notebook-page-left">
-                <h2 class="notebook-country">Испания</h2>
-                <div class="notebook-image" style="background-image: url('https://images.unsplash.com/photo-1543785734-4b6e564642f8?auto=format&fit=crop&w=600');"></div>
-              </div>
-              <div class="notebook-page notebook-page-right">
-                <h3 class="notebook-info-title">Информация о визе</h3>
-                <dl class="notebook-info-list">
-                  <dt>Тип визы</dt>
-                  <dd>Туристическая, гостевая, деловая, учебная</dd>
-                  <dt>Срок</dt>
-                  <dd>до 45 дней</dd>
-                  <dt>Стоимость</dt>
-                  <dd><strong>от 450 BYN</strong></dd>
-                </dl>
-                <a href="index.html#form" class="btn btn-gradient">Оставить заявку</a>
-              </div>
+          </article>
+
+          <article class="catalog-card">
+            <div class="catalog-card-illustration">
+              <img src="images/catalog-louvre.png" alt="Франция" class="catalog-card-image">
             </div>
-            <div class="notebook-spread" data-spread="3">
-              <div class="notebook-page notebook-page-left">
-                <h2 class="notebook-country">Греция</h2>
-                <div class="notebook-image" style="background-image: url('https://images.unsplash.com/photo-1533105077500-3bcd1cd92e10?auto=format&fit=crop&w=600');"></div>
+            <div class="catalog-card-body">
+              <h2 class="catalog-card-country">Франция</h2>
+              <div class="catalog-card-block">
+                <h4 class="catalog-card-block-title">Тип визы</h4>
+                <p class="catalog-card-block-text">Туристическая<br>Гостевая<br>Деловая<br>Рабочая</p>
               </div>
-              <div class="notebook-page notebook-page-right">
-                <h3 class="notebook-info-title">Информация о визе</h3>
-                <dl class="notebook-info-list">
-                  <dt>Тип визы</dt>
-                  <dd>Туристическая, гостевая, деловая</dd>
-                  <dt>Срок</dt>
-                  <dd>до 20 дней</dd>
-                  <dt>Стоимость</dt>
-                  <dd><strong>от 350 BYN</strong></dd>
-                </dl>
-                <a href="index.html#form" class="btn btn-gradient">Оставить заявку</a>
+              <div class="catalog-card-block">
+                <h4 class="catalog-card-block-title">Срок рассмотрения</h4>
+                <p class="catalog-card-block-text">около 10 дней</p>
               </div>
+              <a href="#form" class="catalog-card-btn">Оставить заявку</a>
             </div>
-            <div class="notebook-spread" data-spread="4">
-              <div class="notebook-page notebook-page-left">
-                <h2 class="notebook-country">Германия</h2>
-                <div class="notebook-image" style="background-image: url('https://images.unsplash.com/photo-1560930950-5cc20e80e392?auto=format&fit=crop&w=600');"></div>
-              </div>
-              <div class="notebook-page notebook-page-right">
-                <h3 class="notebook-info-title">Информация о визе</h3>
-                <dl class="notebook-info-list">
-                  <dt>Тип визы</dt>
-                  <dd>Туристическая, гостевая, деловая, рабочая</dd>
-                  <dt>Срок</dt>
-                  <dd>до 10 дней</dd>
-                  <dt>Стоимость</dt>
-                  <dd><strong>от 450 BYN</strong></dd>
-                </dl>
-                <a href="index.html#form" class="btn btn-gradient">Оставить заявку</a>
-              </div>
+          </article>
+
+          <article class="catalog-card">
+            <div class="catalog-card-illustration">
+              <img src="images/catalog-brandenburg.png" alt="Германия" class="catalog-card-image">
             </div>
-            <div class="notebook-spread" data-spread="5">
-              <div class="notebook-page notebook-page-left">
-                <h2 class="notebook-country">Франция</h2>
-                <div class="notebook-image" style="background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600');"></div>
+            <div class="catalog-card-body">
+              <h2 class="catalog-card-country">Германия</h2>
+              <div class="catalog-card-block">
+                <h4 class="catalog-card-block-title">Тип визы</h4>
+                <p class="catalog-card-block-text">Туристическая<br>Гостевая<br>Деловая<br>Рабочая</p>
               </div>
-              <div class="notebook-page notebook-page-right">
-                <h3 class="notebook-info-title">Информация о визе</h3>
-                <dl class="notebook-info-list">
-                  <dt>Тип визы</dt>
-                  <dd>Туристическая, гостевая, деловая, рабочая</dd>
-                  <dt>Срок</dt>
-                  <dd>около 10 дней</dd>
-                  <dt>Стоимость</dt>
-                  <dd><strong>от 400 BYN</strong></dd>
-                </dl>
-                <a href="index.html#form" class="btn btn-gradient">Оставить заявку</a>
+              <div class="catalog-card-block">
+                <h4 class="catalog-card-block-title">Срок рассмотрения</h4>
+                <p class="catalog-card-block-text">около 10 дней</p>
               </div>
+              <a href="#form" class="catalog-card-btn">Оставить заявку</a>
             </div>
-            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Связаться с нами -->
+    <section class="section contact-section" id="form">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-left">
+            <h2 class="contact-title">Связаться с нами</h2>
+            <p class="contact-telegram">
+              <span class="contact-telegram-label">Telegram</span>
+              <a href="https://t.me/go_to_visa" target="_blank" rel="noopener" class="contact-telegram-link">@go_to_visa</a>
+            </p>
+            <div class="contact-video-wrap">
+              <video class="contact-video" autoplay muted loop playsinline>
+                <source src="videos/contact-form.mp4" type="video/mp4">
+              </video>
             </div>
           </div>
-
-          <div class="notebook-nav">
-            <button type="button" class="notebook-nav-btn notebook-prev" aria-label="Предыдущая страница" disabled>‹</button>
-            <span class="notebook-page-indicator">1 / 6</span>
-            <button type="button" class="notebook-nav-btn notebook-next" aria-label="Следующая страница">›</button>
-          </div>
+          <form class="form form-lead" id="contact-form" data-form="lead" action="#" method="post">
+            <input type="text" name="name" placeholder="Ваше имя" required>
+            <input type="tel" name="phone" placeholder="+375 (__) ___-__-__" required>
+            <input type="text" name="telegram" placeholder="Telegram (необязательно)" autocomplete="off">
+            <textarea name="message" placeholder="Сообщение (необязательно)" rows="3"></textarea>
+            <p class="form-privacy">Оставляя заявку, вы даёте согласие на обработку персональных данных.</p>
+            <button type="submit" class="btn btn-gradient btn-block">Отправить заявку</button>
+          </form>
         </div>
       </div>
     </section>
@@ -196,6 +181,5 @@
   </footer>
 
   <script src="js/main.js"></script>
-  <script src="js/catalog.js"></script>
 </body>
 </html>

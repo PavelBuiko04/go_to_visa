@@ -46,10 +46,6 @@
         <span></span><span></span><span></span>
       </button>
     </div>
-    <!-- Самолёт с баннером: летит справа налево, поверх header -->
-    <div class="airplane-banner" aria-hidden="true">
-      <img src="images/airplane-banner.png" alt="" width="400" height="120">
-    </div>
   </header>
 
   <main>
@@ -61,12 +57,20 @@
         </video>
       </div>
       <div class="hero-globe-overlay hero-globe-overlay-light"></div>
+      <!-- Самолёт с баннером (видео): только в Hero над видео -->
+      <div class="airplane-banner" aria-hidden="true">
+        <video class="airplane-img" autoplay muted loop playsinline>
+          <source src="videos/airplane-banner.mp4" type="video/mp4">
+        </video>
+      </div>
       <div class="hero-globe-inner container">
         <div class="hero-globe-content hero-globe-content-centered">
           <p class="hero-globe-subtitle hero-globe-brand">Визовые гуру <span class="hero-brand-go">Go to</span> <span class="hero-brand-visa">Visa</span></p>
           <h1 class="hero-globe-title">Визы в Европу и Мир</h1>
           <p class="hero-globe-text">Сопровождаем до получения визы в паспорте — надёжно и без лишней суеты</p>
-          <a href="#form" class="btn-hero btn-hero-dark">Получить консультацию</a>
+          <div class="hero-btn-wrap">
+            <a href="#form" class="btn-hero btn-hero-dark">Получить консультацию</a>
+          </div>
         </div>
       </div>
     </section>
@@ -93,30 +97,14 @@
     <section class="section quiz-section" id="quiz">
       <div class="container">
         <div class="quiz-wrap">
-          <div class="quiz-progress" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="6">
-            <div class="quiz-progress-bar" style="width: 16.67%;"></div>
-            <span class="quiz-progress-text">1 из 6</span>
+          <div class="quiz-progress" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="5">
+            <div class="quiz-progress-bar" style="width: 20%;"></div>
+            <span class="quiz-progress-text">1 из 5</span>
           </div>
           <div class="quiz-slides">
-            <!-- Слайд 1: Страны Шенгена -->
+            <!-- Слайд 1: Количество человек -->
             <div class="quiz-slide active" data-slide="1">
-              <h2 class="quiz-title">В какие страны Шенгена вы планируете поездку?</h2>
-              <div class="quiz-options quiz-options-checkbox quiz-options-countries">
-                <label class="quiz-option"><input type="checkbox" name="countries" value="Италия"><span>Италия</span></label>
-                <label class="quiz-option"><input type="checkbox" name="countries" value="Испания"><span>Испания</span></label>
-                <label class="quiz-option"><input type="checkbox" name="countries" value="Греция"><span>Греция</span></label>
-                <label class="quiz-option"><input type="checkbox" name="countries" value="Польша"><span>Польша</span></label>
-                <label class="quiz-option"><input type="checkbox" name="countries" value="Франция"><span>Франция</span></label>
-                <label class="quiz-option"><input type="checkbox" name="countries" value="Германия"><span>Германия</span></label>
-                <label class="quiz-option quiz-option-other"><input type="checkbox" name="countries" value="other"><span>Другая страна</span></label>
-                <div class="quiz-other-input-wrap" style="display:none;">
-                  <input type="text" class="quiz-other-input" name="countries_other" placeholder="Укажите свой вариант">
-                </div>
-              </div>
-            </div>
-            <!-- Слайд 2: Количество человек -->
-            <div class="quiz-slide" data-slide="2">
-              <h2 class="quiz-title">Сколько человек планируют поездку, включая вас?</h2>
+              <h2 class="quiz-title">Какое количество человек будет подаваться на визу?</h2>
               <div class="quiz-options quiz-options-radio quiz-options-people">
                 <label class="quiz-option quiz-option-img"><input type="radio" name="people" value="1"><img src="images/quiz-people-1.png" alt="1 человек"><span>Только я</span></label>
                 <label class="quiz-option quiz-option-img"><input type="radio" name="people" value="2"><img src="images/quiz-people-2.png" alt="2 человека"><span>2 человека</span></label>
@@ -128,68 +116,58 @@
                 </div>
               </div>
             </div>
-            <!-- Слайд 3: Шенген за 3 года -->
+            <!-- Слайд 2: Визы за 3 года -->
+            <div class="quiz-slide" data-slide="2">
+              <h2 class="quiz-title">Какие визы были за последние 3 года?</h2>
+              <div class="quiz-options quiz-options-checkbox quiz-options-blocks">
+                <label class="quiz-option"><input type="checkbox" name="visa_3y" value="no"><span>Не было виз</span></label>
+                <label class="quiz-option"><input type="checkbox" name="visa_3y" value="Греция"><span>Греция</span></label>
+                <label class="quiz-option"><input type="checkbox" name="visa_3y" value="Испания"><span>Испания</span></label>
+                <label class="quiz-option"><input type="checkbox" name="visa_3y" value="Италия"><span>Италия</span></label>
+                <label class="quiz-option quiz-option-other"><input type="checkbox" name="visa_3y" value="other"><span>Свой вариант</span></label>
+                <div class="quiz-other-input-wrap" style="display:none;">
+                  <input type="text" class="quiz-other-input" name="visa_3y_other" placeholder="Укажите свой вариант">
+                </div>
+              </div>
+            </div>
+            <!-- Слайд 3: Когда поездка -->
             <div class="quiz-slide" data-slide="3">
-              <h2 class="quiz-title">Были ли у вас шенгенские визы за последние 3 года?</h2>
-              <div class="quiz-options quiz-options-radio">
-                <label class="quiz-option"><input type="radio" name="visa_3y" value="no"><span>Нет, это будет первая виза</span></label>
-                <label class="quiz-option quiz-option-trigger"><input type="radio" name="visa_3y" value="yes"><span>Да, виза была</span></label>
-              </div>
-              <div class="quiz-subblock" id="quiz-visa-country" style="display:none;">
-                <p class="quiz-subtitle">Шенгенская виза какой страны была у вас ранее?</p>
-                <p class="quiz-hint">*Отметьте один или несколько вариантов</p>
-                <div class="quiz-options quiz-options-checkbox">
-                  <label class="quiz-option"><input type="checkbox" name="visa_country" value="Италия"><span>Итальянский шенген</span></label>
-                  <label class="quiz-option"><input type="checkbox" name="visa_country" value="Испания"><span>Испанский шенген</span></label>
-                  <label class="quiz-option"><input type="checkbox" name="visa_country" value="Греция"><span>Греческий шенген</span></label>
-                  <label class="quiz-option"><input type="checkbox" name="visa_country" value="Франция"><span>Французский шенген</span></label>
-                  <label class="quiz-option"><input type="checkbox" name="visa_country" value="Польша"><span>Польский шенген</span></label>
-                  <label class="quiz-option"><input type="checkbox" name="visa_country" value="Германия"><span>Немецкий шенген</span></label>
-                  <label class="quiz-option quiz-option-other"><input type="checkbox" name="visa_country" value="other"><span>Свой вариант</span></label>
-                  <div class="quiz-other-input-wrap" style="display:none;">
-                    <input type="text" class="quiz-other-input" name="visa_country_other" placeholder="Укажите свой вариант">
-                  </div>
+              <h2 class="quiz-title">Когда планируется поездка?</h2>
+              <div class="quiz-options quiz-options-radio quiz-options-blocks quiz-options-when">
+                <label class="quiz-option"><input type="radio" name="when" value="urgent"><span>Меньше, чем через 2 недели</span></label>
+                <label class="quiz-option"><input type="radio" name="when" value="1-3m"><span>1–3 месяца есть в запасе</span></label>
+                <label class="quiz-option"><input type="radio" name="when" value="2-4"><span>В ближайшее время (2–4 недели)</span></label>
+                <label class="quiz-option"><input type="radio" name="when" value="undecided"><span>Просто хочу уточнить заранее информацию</span></label>
+                <label class="quiz-option quiz-option-other"><input type="radio" name="when" value="date"><span>Точная дата</span></label>
+                <div class="quiz-other-input-wrap" style="display:none;">
+                  <input type="date" class="quiz-other-input quiz-input-date" name="when_other">
                 </div>
               </div>
             </div>
-            <!-- Слайд 4: Посещённые страны -->
+            <!-- Слайд 4: Куда поездка -->
             <div class="quiz-slide" data-slide="4">
-              <h2 class="quiz-title">Какие страны Европы вы уже посетили по визе?</h2>
-              <div class="quiz-options quiz-options-checkbox">
-                <label class="quiz-option"><input type="checkbox" name="visited" value="Италия"><span>Италия</span></label>
-                <label class="quiz-option"><input type="checkbox" name="visited" value="Испания"><span>Испания</span></label>
-                <label class="quiz-option"><input type="checkbox" name="visited" value="Греция"><span>Греция</span></label>
-                <label class="quiz-option"><input type="checkbox" name="visited" value="Франция"><span>Франция</span></label>
-                <label class="quiz-option"><input type="checkbox" name="visited" value="Германия"><span>Германия</span></label>
-                <label class="quiz-option"><input type="checkbox" name="visited" value="Польша"><span>Польша</span></label>
-                <label class="quiz-option quiz-option-other"><input type="checkbox" name="visited" value="other"><span>Свой вариант</span></label>
+              <h2 class="quiz-title">Куда планируется поездка?</h2>
+              <div class="quiz-options quiz-options-checkbox quiz-options-countries quiz-options-blocks">
+                <label class="quiz-option quiz-option-country"><input type="checkbox" name="countries" value="Италия"><span class="quiz-country-heart"><img src="https://flagcdn.com/w80/it.png" alt="Италия" width="64" height="48"></span><span class="quiz-country-name">🇮🇹 Италия</span></label>
+                <label class="quiz-option quiz-option-country"><input type="checkbox" name="countries" value="Греция"><span class="quiz-country-heart"><img src="https://flagcdn.com/w80/gr.png" alt="Греция" width="64" height="48"></span><span class="quiz-country-name">🇬🇷 Греция</span></label>
+                <label class="quiz-option quiz-option-country"><input type="checkbox" name="countries" value="Испания"><span class="quiz-country-heart"><img src="https://flagcdn.com/w80/es.png" alt="Испания" width="64" height="48"></span><span class="quiz-country-name">🇪🇸 Испания</span></label>
+                <label class="quiz-option quiz-option-country"><input type="checkbox" name="countries" value="Франция"><span class="quiz-country-heart"><img src="https://flagcdn.com/w80/fr.png" alt="Франция" width="64" height="48"></span><span class="quiz-country-name">🇫🇷 Франция</span></label>
+                <label class="quiz-option quiz-option-country"><input type="checkbox" name="countries" value="Германия"><span class="quiz-country-heart"><img src="https://flagcdn.com/w80/de.png" alt="Германия" width="64" height="48"></span><span class="quiz-country-name">🇩🇪 Германия</span></label>
+                <label class="quiz-option quiz-option-country quiz-option-other"><input type="checkbox" name="countries" value="other"><span class="quiz-country-heart"><img src="images/quiz-globe.png" alt="Свой вариант" width="64" height="48"></span><span class="quiz-country-name">🌐 Свой вариант</span></label>
                 <div class="quiz-other-input-wrap" style="display:none;">
-                  <input type="text" class="quiz-other-input" name="visited_other" placeholder="Укажите свой вариант">
+                  <input type="text" class="quiz-other-input quiz-country-autocomplete" name="countries_other" placeholder="Укажите страну или страны" autocomplete="off">
+                  <div class="quiz-country-suggestions" hidden></div>
                 </div>
               </div>
             </div>
-            <!-- Слайд 5: Когда выезд -->
-            <div class="quiz-slide" data-slide="5">
-              <h2 class="quiz-title">Когда вы планируете первый выезд?</h2>
-              <div class="quiz-options quiz-options-radio quiz-options-when">
-                <label class="quiz-option"><input type="radio" name="when" value="urgent"><span>СРОЧНО (менее, чем через 2 недели)</span></label>
-                <label class="quiz-option"><input type="radio" name="when" value="2-4"><span>В ближайшее время (через 2–4 недели)</span></label>
-                <label class="quiz-option"><input type="radio" name="when" value="1-3m"><span>Планирую заранее (через 1–3 месяца)</span></label>
-                <label class="quiz-option"><input type="radio" name="when" value="undecided"><span>Пока только изучаю варианты (дата не определена)</span></label>
-                <label class="quiz-option quiz-option-other"><input type="radio" name="when" value="other"><span>Укажите точную дату</span></label>
-                <div class="quiz-other-input-wrap" style="display:none;">
-                  <input type="text" class="quiz-other-input" name="when_other" placeholder="Укажите дату выезда">
-                </div>
-              </div>
-            </div>
-            <!-- Слайд 6: Контакты -->
-            <div class="quiz-slide quiz-slide-form" data-slide="6">
+            <!-- Слайд 5: Имя и телефон -->
+            <div class="quiz-slide quiz-slide-form" data-slide="5">
               <h2 class="quiz-title">Отлично! Персональный расчёт почти готов.</h2>
-              <p class="quiz-desc">Чтобы наш менеджер смог отправить вам подборку оптимальных вариантов по срокам и стоимости, оставьте ваши контактные данные.</p>
+              <p class="quiz-desc">Оставьте контактные данные — наш менеджер свяжется с вами и отправит подборку вариантов.</p>
               <form class="quiz-form form" id="quiz-form" data-form="quiz">
                 <input type="text" name="name" placeholder="Ваше имя" required>
                 <input type="tel" name="phone" placeholder="+375 (00) 000-00-00" required>
-                <p class="form-privacy">В соответствии с законом о защите персональных данных, оставляя свой контакт, вы даёте согласие на обработку.</p>
+                <p class="form-privacy">В соответствии с законом о защите персональных данных, оставляя контакт, вы даёте согласие на обработку.</p>
                 <button type="submit" class="btn btn-gradient btn-block" id="quiz-submit-btn" disabled>Отправить</button>
               </form>
             </div>
@@ -300,6 +278,11 @@
               <span class="contact-telegram-label">Telegram</span>
               <a href="https://t.me/go_to_visa" target="_blank" rel="noopener" class="contact-telegram-link">@go_to_visa</a>
             </p>
+            <div class="contact-video-wrap">
+              <video class="contact-video" autoplay muted loop playsinline>
+                <source src="videos/contact-form.mp4" type="video/mp4">
+              </video>
+            </div>
           </div>
           <form class="form form-lead" id="contact-form" data-form="lead" action="#" method="post">
             <input type="text" name="name" placeholder="Ваше имя" required>
@@ -326,6 +309,7 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <script src="js/countries-ru.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
