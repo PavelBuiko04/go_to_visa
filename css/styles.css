@@ -300,9 +300,7 @@ a.icon-btn { text-decoration: none; }
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.03) 60%, transparent 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  /* background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 60%, transparent 100%); */
   border-radius: 24px;
   z-index: -1;
 }
@@ -506,6 +504,7 @@ a.icon-btn { text-decoration: none; }
   background: #EFF6FF;
   box-shadow: 0 2px 12px rgba(29, 78, 216, 0.15);
 }
+.quiz-option-disabled { opacity: 0.5; pointer-events: none; }
 .quiz-option-other { flex-basis: 100%; }
 .quiz-options-blocks .quiz-option:not(.quiz-option-other) {
   flex-basis: calc(50% - 6px);
@@ -876,10 +875,58 @@ a.icon-btn { text-decoration: none; }
 
 /* ===== Почему нам доверяют ===== */
 .trust-section { background: var(--white); }
+.trust-header {
+  position: relative;
+  margin-bottom: 12px;
+  min-height: 160px;
+  background: transparent;
+}
+.trust-bus {
+  position: absolute;
+  left: 0%;
+  top: 140%;
+  transform: translate(-50%, -50%) rotate(5deg);
+  height: 180px;
+  width: auto;
+  object-fit: contain;
+  background: transparent;
+}
 .trust-section .section-title {
+  position: relative;
+  z-index: 1;
   font-family: 'Caveat', 'Caveat Brush', cursive;
   font-size: clamp(2rem, 4vw, 2.8rem);
   color: var(--blue);
+  margin: 0;
+  text-align: center;
+}
+.trust-years {
+  position: absolute;
+  z-index: 1;
+  right: -24px;
+  top: 120%;
+  transform: translateY(-50%) rotate(-3deg);
+  font-family: 'Caveat', 'Caveat Brush', cursive;
+  font-size: clamp(2.1rem, 3.75vw, 2.85rem);
+  color: var(--blue);
+  margin: 0;
+  white-space: nowrap;
+  opacity: 0.95;
+}
+
+@media (max-width: 768px) {
+  .trust-bus {
+    position: static;
+    transform: none;
+    display: block;
+    margin: 0 auto 12px;
+  }
+  .trust-years {
+    position: static;
+    transform: rotate(-2deg);
+    text-align: center;
+    margin-top: 12px;
+  }
 }
 .trust-subtitle {
   margin: 0 0 28px;
@@ -937,6 +984,55 @@ a.icon-btn { text-decoration: none; }
   text-align: center;
 }
 .trust-section .reviews-grid { margin-top: 0; }
+
+/* Отзывы — картинки в рамках */
+.reviews-grid-images {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.review-card-img {
+  padding: 0;
+  overflow: hidden;
+}
+.review-card-frame {
+  position: relative;
+  border-radius: 12px;
+  border: 2px solid rgba(37, 99, 235, 0.15);
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+.review-card-frame:hover {
+  box-shadow: 0 6px 24px rgba(37, 99, 235, 0.12);
+  border-color: rgba(37, 99, 235, 0.25);
+}
+.review-card-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  vertical-align: middle;
+}
+.review-card-img .review-card-frame {
+  aspect-ratio: auto;
+}
+
+@media (max-width: 900px) {
+  .reviews-grid-images {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .reviews-grid-images {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+  }
+}
 
 /* ===== Секции общие ===== */
 .section {
@@ -1134,19 +1230,78 @@ a.icon-btn { text-decoration: none; }
   color: var(--dark-gray);
   text-align: center;
 }
-.footer .container {
+.footer .container,
+.footer-inner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 24px;
 }
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  gap: 32px 48px;
+  margin-bottom: 8px;
+  text-align: left;
+}
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+.footer-logo-link {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  font-family: 'Caveat Brush', cursive;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.2;
+  transition: opacity var(--transition);
+}
+.footer-logo-link:hover { opacity: 0.85; }
+.footer-logo-go { color: var(--dark-gray); }
+.footer-logo-visa { color: #2563EB; }
 .footer-grid {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 24px;
-  margin-bottom: 24px;
+  width: 100%;
+  max-width: 1200px;
+  gap: 40px 60px;
+  margin-bottom: 8px;
+  text-align: left;
+}
+.footer-logo { margin: 0; font-size: 1.3rem; font-weight: 700; color: var(--dark-gray); }
+.footer-desc { margin: 0; font-size: 0.95rem; opacity: 0.9; }
+.footer-schedule { margin: 0; font-size: 0.9rem; opacity: 0.9; line-height: 1.5; }
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  align-items: center;
+}
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--purple);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color var(--transition);
+}
+.footer-social-link:hover { color: var(--blue); }
+.footer-social-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
 }
 .footer-contacts { display: flex; flex-direction: column; gap: 8px; }
 .footer-phone {
@@ -1169,6 +1324,16 @@ a.icon-btn { text-decoration: none; }
   font-size: 0.85rem;
   color: var(--dark-gray);
   opacity: 0.75;
+}
+
+@media (max-width: 640px) {
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-brand { text-align: center; }
+  .footer-social { justify-content: center; }
 }
 
 /* ===== Каталог: карточки в стиле Germany ===== */
@@ -1554,7 +1719,7 @@ a.icon-btn { text-decoration: none; }
 
 /* ===== Responsive ===== */
 @media (max-width: 1024px) {
-  .reviews-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+  .reviews-grid:not(.reviews-grid-images) { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
   .header-actions .header-phone { display: none; }
 }
 
@@ -1590,4 +1755,35 @@ a.icon-btn { text-decoration: none; }
 @media (max-width: 480px) {
   .container { padding: 0 16px; }
 }
+
+/* ===== Страница Политики конфиденциальности ===== */
+.privacy-main { padding: 48px 0 80px; background: var(--white); }
+.privacy-article { max-width: 720px; margin: 0 auto; }
+.privacy-title {
+  margin: 80px 0 32px;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--dark-gray);
+}
+.privacy-section {
+  margin-bottom: 28px;
+}
+.privacy-section h2 {
+  margin: 0 0 16px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--dark-gray);
+}
+.privacy-section p, .privacy-section li {
+  margin: 0 0 12px;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--dark-gray);
+}
+.privacy-section ul {
+  margin: 0 0 12px;
+  padding-left: 24px;
+}
+.privacy-section a { color: var(--purple); text-decoration: none; }
+.privacy-section a:hover { text-decoration: underline; }
 

@@ -6,6 +6,21 @@
 (function () {
   'use strict';
 
+  // ——— Safari: принудительный запуск видео (autoplay может не срабатывать) ———
+  function startVideos() {
+    document.querySelectorAll('video[autoplay]').forEach(function (v) {
+      v.muted = true;
+      v.setAttribute('playsinline', '');
+      v.play().catch(function () {});
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', startVideos);
+  } else {
+    startVideos();
+  }
+  window.addEventListener('pageshow', function (e) { if (e.persisted) startVideos(); });
+
   // ——— Sticky header (прозрачный над Hero, затем фон) ———
   var header = document.getElementById('header');
   if (header) {
@@ -162,7 +177,12 @@
         nextBtn.disabled = current < totalSlides && !isSlideValid(current);
       }
       if (current === totalSlides && typeof confetti === 'function') {
-        confetti({ particleCount: 80, spread: 60, origin: { y: 0.6 }, ticks: 120, scalar: 0.8 });
+        var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!reducedMotion) {
+          setTimeout(function() {
+            confetti({ particleCount: 35, spread: 50, origin: { y: 0.6 }, ticks: 60, scalar: 0.7 });
+          }, 100);
+        }
       }
     }
 
@@ -209,10 +229,19 @@
       return true;
     }
 
+    var updateNextButtonTimer;
     function updateNextButton() {
       if (nextBtn && current < totalSlides) {
-        nextBtn.disabled = !isSlideValid(current);
+        if (updateNextButtonTimer) clearTimeout(updateNextButtonTimer);
+        updateNextButtonTimer = setTimeout(function() {
+          updateNextButtonTimer = 0;
+          nextBtn.disabled = !isSlideValid(current);
+        }, 50);
       }
+    }
+    function updateNextButtonImmediate() {
+      if (updateNextButtonTimer) { clearTimeout(updateNextButtonTimer); updateNextButtonTimer = 0; }
+      if (nextBtn && current < totalSlides) nextBtn.disabled = !isSlideValid(current);
     }
 
     function getNextSlide() {
@@ -232,11 +261,11 @@
     });
 
     quiz.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(function(inp) {
-      inp.addEventListener('change', updateNextButton);
+      inp.addEventListener('change', updateNextButtonImmediate);
     });
     quiz.querySelectorAll('.quiz-other-input').forEach(function(inp) {
       inp.addEventListener('input', updateNextButton);
-      inp.addEventListener('change', updateNextButton);
+      inp.addEventListener('change', updateNextButtonImmediate);
     });
 
     // Автодополнение стран для «Свой вариант» в «Куда поездка» (все страны мира)
@@ -265,7 +294,7 @@
           btn.addEventListener('click', function() {
             countryInput.value = name;
             suggestionsEl.hidden = true;
-            updateNextButton();
+            updateNextButtonImmediate();
           });
           suggestionsEl.appendChild(btn);
         });
@@ -274,8 +303,13 @@
       function hideSuggestions() {
         setTimeout(function() { suggestionsEl.hidden = true; }, 150);
       }
+      var autocompleteTimer;
       countryInput.addEventListener('input', function() {
-        showSuggestions(getMatches(countryInput.value));
+        if (autocompleteTimer) clearTimeout(autocompleteTimer);
+        autocompleteTimer = setTimeout(function() {
+          autocompleteTimer = 0;
+          showSuggestions(getMatches(countryInput.value));
+        }, 120);
       });
       countryInput.addEventListener('focus', function() {
         showSuggestions(getMatches(countryInput.value));
@@ -319,13 +353,13 @@
         visaCountries.forEach(function(cb) {
           cb.disabled = noChecked;
           if (noChecked) { cb.checked = false; }
-          cb.closest('.quiz-option').style.opacity = noChecked ? '0.5' : '1';
-          cb.closest('.quiz-option').style.pointerEvents = noChecked ? 'none' : '';
+          var opt = cb.closest('.quiz-option');
+          if (opt) opt.classList.toggle('quiz-option-disabled', noChecked);
         });
         visaNo.disabled = anyCountryChecked;
         if (anyCountryChecked) { visaNo.checked = false; }
-        visaNo.closest('.quiz-option').style.opacity = anyCountryChecked ? '0.5' : '1';
-        visaNo.closest('.quiz-option').style.pointerEvents = anyCountryChecked ? 'none' : '';
+        var noOpt = visaNo.closest('.quiz-option');
+        if (noOpt) noOpt.classList.toggle('quiz-option-disabled', anyCountryChecked);
         // Скрыть поле «Свой вариант» при снятии «other»
         var otherCb = quiz.querySelector('input[name="visa_3y"][value="other"]');
         var wrap = otherCb && otherCb.closest('.quiz-option-other') && otherCb.closest('.quiz-option-other').nextElementSibling;
