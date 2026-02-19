@@ -988,12 +988,30 @@ a.icon-btn { text-decoration: none; }
   line-height: 1.6;
 }
 
+@media (max-width: 1024px) {
+  .help-block { padding: 52px 0; }
+  .help-title { margin-bottom: 32px; font-size: 1.5rem; }
+  .help-title-script { font-size: 2.2rem; }
+  .help-item { padding: 24px 26px; }
+  .help-step { padding: 20px 22px; gap: 16px; }
+  .help-step-img-wrap { width: 112px; height: 112px; }
+  .help-step-num { width: 38px; height: 38px; font-size: 1.1rem; }
+  .help-item-title { font-size: 1.1rem; margin-bottom: 8px; }
+  .help-item-text { font-size: 0.95rem; line-height: 1.55; }
+  .help-grid-steps { gap: 24px 36px; }
+}
+
 @media (max-width: 768px) {
   .help-block { padding: 48px 0; }
   .help-item { padding: 22px 24px; }
   .help-step { padding: 20px; gap: 20px; }
-  .help-step-img-wrap { width: 100px; height: 100px; }
+  .help-step-img-wrap { width: 190px; height: 100px; }
+  .help-step-img-wrap .help-step-img { padding: 0; }
   .help-grid-steps { grid-template-columns: 1fr; gap: 24px; }
+  .help-grid-steps .help-step-1 { order: 1; }
+  .help-grid-steps .help-step-2 { order: 2; }
+  .help-grid-steps .help-step-3 { order: 3; }
+  .help-grid-steps .help-step-4 { order: 4; }
   .help-steps-lines { display: none; }
   .help-step-num { width: 36px; height: 36px; font-size: 1.1rem; }
 }
@@ -1025,6 +1043,11 @@ a.icon-btn { text-decoration: none; }
   object-fit: contain;
   background: transparent;
 }
+
+@media (max-width: 1600px) {
+  .trust-bus { height: 140px; left: 10%; }
+}
+
 .trust-section .section-title {
   position: relative;
   z-index: 1;
@@ -1128,13 +1151,19 @@ a.icon-btn { text-decoration: none; }
   padding-top: 48px;
   border-top: 1px solid rgba(43, 43, 43, 0.08);
 }
+.trust-reviews-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
 .trust-reviews-title {
-  margin: 0 0 24px;
+  margin: 0;
   font-family: 'Caveat', 'Caveat Brush', cursive;
   font-size: clamp(1.8rem, 3.5vw, 2.4rem);
   font-weight: 700;
   color: var(--blue);
-  text-align: center;
 }
 .trust-section .reviews-grid { margin-top: 0; }
 
@@ -1176,16 +1205,82 @@ a.icon-btn { text-decoration: none; }
   aspect-ratio: auto;
 }
 
+.review-block-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.review-block-stack .review-card-frame { flex: 0 0 auto; }
+
 @media (max-width: 900px) {
   .reviews-grid-images {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
+/* Слайдер отзывов на 768px */
+.reviews-slider-nav {
+  display: flex;
+  gap: 8px;
+}
+.reviews-slider {
+  position: relative;
+}
+.reviews-slider-btn {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border: 2px solid rgba(37, 99, 235, 0.3);
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--blue);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition), color var(--transition);
+}
+.reviews-slider-btn:hover {
+  background: #EFF6FF;
+  border-color: var(--blue);
+}
+.reviews-slider-track {
+  flex: 1;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 769px) {
+  .trust-reviews-header { justify-content: center; }
+  .reviews-slider-nav { display: none; }
+}
+
+@media (max-width: 768px) {
+  .reviews-slider-track {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 4px 0;
+  }
+  .reviews-slider-track::-webkit-scrollbar { height: 6px; }
+  .reviews-slider-track::-webkit-scrollbar-track { background: rgba(43, 43, 43, 0.08); border-radius: 3px; }
+  .reviews-slider-track::-webkit-scrollbar-thumb { background: rgba(37, 99, 235, 0.3); border-radius: 3px; }
+  .reviews-grid.reviews-grid-images {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 16px;
+    padding: 0 8px;
+    max-width: none;
+  }
+  .reviews-grid.reviews-grid-images > * {
+    flex: 0 0 auto;
+    width: min(280px, calc(100vw - 120px));
+    scroll-snap-align: start;
+  }
+}
+
 @media (max-width: 600px) {
-  .reviews-grid-images {
-    grid-template-columns: 1fr;
-    max-width: 420px;
+  .reviews-grid.reviews-grid-images > * {
+    width: min(260px, calc(100vw - 100px));
   }
 }
 

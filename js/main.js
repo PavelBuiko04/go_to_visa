@@ -264,8 +264,40 @@
       if (next <= totalSlides) goTo(next);
     });
 
+    function hasCustomSelected(slideNum) {
+      if (slideNum === 1) {
+        var r = quiz.querySelector('input[name="people"]:checked');
+        return r && r.value === 'other';
+      }
+      if (slideNum === 2) {
+        var o = quiz.querySelector('input[name="visa_3y"][value="other"]');
+        return o && o.checked;
+      }
+      if (slideNum === 3) {
+        var w = quiz.querySelector('input[name="when"]:checked');
+        return w && w.value === 'date';
+      }
+      if (slideNum === 4) {
+        var c = quiz.querySelector('input[name="countries"][value="other"]');
+        return c && c.checked;
+      }
+      return false;
+    }
+
     quiz.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(function(inp) {
       inp.addEventListener('change', updateNextButtonImmediate);
+      inp.addEventListener('change', function autoAdvanceOnSelect(ev) {
+        if (current >= totalSlides) return;
+        if (current === 2 || current === 4) return;
+        var target = ev.target;
+        if (target.value === 'other' || target.value === 'date') return;
+        var checked = target.type === 'radio' ? true : target.checked;
+        if (!checked) return;
+        if (hasCustomSelected(current)) return;
+        if (isSlideValid(current)) {
+          setTimeout(function() { goTo(current + 1); }, 80);
+        }
+      });
     });
     quiz.querySelectorAll('.quiz-other-input').forEach(function(inp) {
       inp.addEventListener('input', updateNextButton);
@@ -484,6 +516,20 @@
 
     goTo(1);
   })();
+
+  // ——— Слайдер отзывов (768px) ———
+  var reviewsTrack = document.querySelector('.reviews-slider-track');
+  var reviewsPrev = document.querySelector('.reviews-slider-prev');
+  var reviewsNext = document.querySelector('.reviews-slider-next');
+  if (reviewsTrack && reviewsPrev && reviewsNext) {
+    var slideBy = 300;
+    reviewsPrev.addEventListener('click', function () {
+      reviewsTrack.scrollBy({ left: -slideBy, behavior: 'smooth' });
+    });
+    reviewsNext.addEventListener('click', function () {
+      reviewsTrack.scrollBy({ left: slideBy, behavior: 'smooth' });
+    });
+  }
 
   // ——— FAQ accordion ———
   document.querySelectorAll('.faq-question').forEach(function (btn) {
