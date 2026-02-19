@@ -351,7 +351,7 @@
 
     // Визы за 3 года: «Не было виз» и страны взаимно исключают друг друга
     var visaNo = quiz.querySelector('input[name="visa_3y"][value="no"]');
-    var visaCountries = quiz.querySelectorAll('input[name="visa_3y"][value="Греция"], input[name="visa_3y"][value="Испания"], input[name="visa_3y"][value="Италия"], input[name="visa_3y"][value="other"]');
+    var visaCountries = quiz.querySelectorAll('input[name="visa_3y"][value="Греция"], input[name="visa_3y"][value="Испания"], input[name="visa_3y"][value="Италия"], input[name="visa_3y"][value="Польша"], input[name="visa_3y"][value="other"]');
     if (visaNo && visaCountries.length) {
       function syncVisa3y() {
         var noChecked = visaNo.checked;
