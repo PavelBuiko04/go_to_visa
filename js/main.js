@@ -191,7 +191,8 @@
         var r = quiz.querySelector('input[name="people"]:checked');
         if (!r) return false;
         if (r.value === 'other') {
-          var val = (quiz.querySelector('[name="people_other"]')?.value || '').trim();
+          var po = quiz.querySelector('[name="people_other"]');
+          var val = (po && po.value ? po.value : '').trim();
           return val.length > 0;
         }
         return true;
@@ -201,7 +202,8 @@
         if (!checked.length) return false;
         var other = quiz.querySelector('input[name="visa_3y"][value="other"]');
         if (other && other.checked) {
-          var val = (quiz.querySelector('[name="visa_3y_other"]')?.value || '').trim();
+          var vo = quiz.querySelector('[name="visa_3y_other"]');
+          var val = (vo && vo.value ? vo.value : '').trim();
           return val.length > 0;
         }
         return true;
@@ -210,7 +212,8 @@
         var r = quiz.querySelector('input[name="when"]:checked');
         if (!r) return false;
         if (r.value === 'date') {
-          var val = (quiz.querySelector('[name="when_other"]')?.value || '').trim();
+          var wo = quiz.querySelector('[name="when_other"]');
+          var val = (wo && wo.value ? wo.value : '').trim();
           return val.length > 0;
         }
         return true;
@@ -220,7 +223,8 @@
         if (!checked.length) return false;
         var other = quiz.querySelector('input[name="countries"][value="other"]');
         if (other && other.checked) {
-          var val = (quiz.querySelector('[name="countries_other"]')?.value || '').trim();
+          var co = quiz.querySelector('[name="countries_other"]');
+          var val = (co && co.value ? co.value : '').trim();
           return val.length > 0;
         }
         return true;
@@ -291,11 +295,13 @@
           btn.type = 'button';
           btn.className = 'quiz-country-suggestion';
           btn.textContent = name;
-          btn.addEventListener('click', function() {
+          function applySuggestion() {
             countryInput.value = name;
             suggestionsEl.hidden = true;
             updateNextButtonImmediate();
-          });
+          }
+          btn.addEventListener('pointerdown', function(ev) { ev.preventDefault(); applySuggestion(); });
+          btn.addEventListener('click', function() { applySuggestion(); });
           suggestionsEl.appendChild(btn);
         });
         suggestionsEl.hidden = false;
@@ -376,8 +382,10 @@
     var quizSubmitBtn = document.getElementById('quiz-submit-btn');
     if (quizForm && quizSubmitBtn) {
       function checkQuizFormValid() {
-        var name = (quizForm.querySelector('[name="name"]')?.value || '').trim();
-        var phone = (quizForm.querySelector('[name="phone"]')?.value || '').trim().replace(/\D/g, '');
+        var nameEl = quizForm.querySelector('[name="name"]');
+        var phoneEl = quizForm.querySelector('[name="phone"]');
+        var name = (nameEl && nameEl.value ? nameEl.value : '').trim();
+        var phone = (phoneEl && phoneEl.value ? phoneEl.value : '').trim().replace(/\D/g, '');
         quizSubmitBtn.disabled = !(name.length >= 2 && phone.length >= 9);
       }
       quizForm.querySelectorAll('input[name="name"], input[name="phone"]').forEach(function(inp) {
@@ -385,28 +393,36 @@
         inp.addEventListener('change', checkQuizFormValid);
       });
       checkQuizFormValid();
+      var quizSubmitInProgress = false;
       quizForm.addEventListener('submit', function(e) {
         e.preventDefault();
+        if (quizSubmitInProgress) return;
+        quizSubmitInProgress = true;
+        if (quizSubmitBtn) quizSubmitBtn.disabled = true;
         var data = serializeForm(quizForm);
         var quizData = {};
         // Куда поездка — собираем ВСЕ выбранное: карточки стран + свой вариант (в одной строке)
         quizData.countries = [];
         quiz.querySelectorAll('input[name="countries"]:checked').forEach(function(cb) {
-          var val = cb.value === 'other' ? (quiz.querySelector('[name="countries_other"]')?.value || '').trim() : cb.value;
+          var coEl = quiz.querySelector('[name="countries_other"]');
+          var val = cb.value === 'other' ? (coEl && coEl.value ? coEl.value : '').trim() : cb.value;
           if (val) quizData.countries.push(val);
         });
         // Количество человек
         var peopleChecked = quiz.querySelector('input[name="people"]:checked');
-        quizData.people = peopleChecked ? (peopleChecked.value === 'other' ? (quiz.querySelector('[name="people_other"]')?.value || '').trim() : peopleChecked.value) : '';
+        var peopleOtherEl = quiz.querySelector('[name="people_other"]');
+        quizData.people = peopleChecked ? (peopleChecked.value === 'other' ? (peopleOtherEl && peopleOtherEl.value ? peopleOtherEl.value : '').trim() : peopleChecked.value) : '';
         // Визы за 3 года — собираем все выбранное в одной строке
         quizData.visa_3y = [];
+        var visaOtherEl = quiz.querySelector('[name="visa_3y_other"]');
         quiz.querySelectorAll('input[name="visa_3y"]:checked').forEach(function(r) {
-          var v = r.value === 'other' ? (quiz.querySelector('[name="visa_3y_other"]')?.value || '').trim() : r.value;
+          var v = r.value === 'other' ? (visaOtherEl && visaOtherEl.value ? visaOtherEl.value : '').trim() : r.value;
           if (v) quizData.visa_3y.push(v);
         });
         // Когда поездка
         var whenChecked = quiz.querySelector('input[name="when"]:checked');
-        quizData.when = whenChecked ? (whenChecked.value === 'date' ? (quiz.querySelector('[name="when_other"]')?.value || '').trim() : whenChecked.value) : '';
+        var whenOtherEl = quiz.querySelector('[name="when_other"]');
+        quizData.when = whenChecked ? (whenChecked.value === 'date' ? (whenOtherEl && whenOtherEl.value ? whenOtherEl.value : '').trim() : whenChecked.value) : '';
         Object.assign(data, quizData);
         console.log('Quiz form data:', data);
         // Человекочитаемые подписи
@@ -459,6 +475,10 @@
         form.remove();
         showMessage(quizForm, 'Спасибо! Менеджер свяжется с вами в ближайшее время.');
         quizForm.reset();
+        quizSubmitInProgress = false;
+      });
+      quizForm.querySelectorAll('input[name="name"], input[name="phone"]').forEach(function(inp) {
+        inp.addEventListener('keyup', checkQuizFormValid);
       });
     }
 
@@ -480,4 +500,5 @@
       }
     });
   });
+
 })();
