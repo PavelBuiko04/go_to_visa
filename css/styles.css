@@ -553,7 +553,7 @@ a.icon-btn { text-decoration: none; }
   text-align: center;
   padding: 20px 16px;
   flex-basis: calc(50% - 6px);
-  min-width: 120px;
+  min-width: 100px;
   background: var(--white);
 }
 .quiz-country-heart {
@@ -582,18 +582,25 @@ a.icon-btn { text-decoration: none; }
   box-shadow: 0 0 0 2px var(--blue);
 }
 .quiz-country-name { font-size: 1rem; font-weight: 500; }
-.quiz-options-countries .quiz-option-country { min-width: 120px; }
+.quiz-options-countries .quiz-option-country {
+  min-width: 100px;
+  /* max-width: 100px; */
+}
 .quiz-options-countries .quiz-option:not(.quiz-option-other):not(.quiz-option-country) {
   flex-basis: calc(50% - 6px);
-  min-width: 140px;
+  min-width: 100px;
   padding: 18px 22px;
   font-size: 1.05rem;
 }
-.quiz-options-countries .quiz-option-country.quiz-option-other { flex-basis: calc(50% - 6px); min-width: 120px; }
+.quiz-options-countries .quiz-option-country.quiz-option-other {
+  flex-basis: calc(50% - 6px);
+  min-width: 100px;
+  
+}
 .quiz-options-when .quiz-option {
   flex-basis: calc(50% - 6px);
-  width: calc(50% - 6px);
-  min-width: 0;
+  /* width: calc(50% - 6px); */
+  min-width: 100px;
   padding: 18px 22px;
 }
 .quiz-options-when .quiz-option-other { flex-basis: 100%; width: 100%; }
@@ -1046,6 +1053,23 @@ a.icon-btn { text-decoration: none; }
 
 @media (max-width: 1600px) {
   .trust-bus { height: 140px; left: 10%; }
+  .trust-list {max-width: 480px;}
+}
+
+@media (max-width: 1300px) {
+  .trust-bus { top: 50%; left: 20%; height: 120px;}
+}
+
+@media (max-width: 1024px) {
+  .trust-bus { top: 50%; left: 20%; height: 100px;}
+}
+
+@media (max-width: 768px) {
+  .trust-bus { top: 50%; left: 20%; height: 80px;}
+}
+
+@media (max-width: 480px) {
+  .trust-bus { top: 50%; left: 20%; height: 60px;}
 }
 
 .trust-section .section-title {
@@ -1060,7 +1084,7 @@ a.icon-btn { text-decoration: none; }
 .trust-years {
   position: absolute;
   z-index: 1;
-  right: -24px;
+  right: 24px;
   top: 120%;
   transform: translateY(-50%) rotate(-3deg);
   font-family: 'Caveat', 'Caveat Brush', cursive;
@@ -1073,7 +1097,7 @@ a.icon-btn { text-decoration: none; }
 .trust-discount {
   position: absolute;
   z-index: 1;
-  right: -24px;
+  right: 24px;
   top: 165%;
   transform: translateY(120%) rotate(4deg);
   font-family: 'Caveat', 'Caveat Brush', cursive;
@@ -1082,6 +1106,11 @@ a.icon-btn { text-decoration: none; }
   margin: 0;
   white-space: nowrap;
   opacity: 0.95;
+}
+
+@media (max-width: 1300px) {
+  .trust-years { font-size: clamp(1.5rem, 2.8vw, 2rem); }
+  .trust-discount { font-size: clamp(1.25rem, 2.4vw, 1.65rem); }
 }
 
 @media (max-width: 768px) {
@@ -1526,16 +1555,99 @@ a.icon-btn { text-decoration: none; }
 .contact-telegram-link:hover {
   text-decoration: underline;
 }
+@media (max-width: 1024px) {
+  .contact-section { padding: 56px 0; }
+  .contact-grid { gap: 48px 60px; max-width: 100%; }
+  .contact-brand { font-size: clamp(1.4rem, 2.5vw, 1.8rem); }
+  .contact-desc, .contact-schedule { font-size: 0.9rem; }
+  .contact-messengers-title { font-size: 0.95rem; }
+  .contact-messenger-link { font-size: 0.9rem; }
+  .contact-grid .form-lead { min-width: 0; padding: 20px; }
+  .contact-section .form-lead input,
+  .contact-section .form-lead textarea { padding: 12px 14px; font-size: 0.95rem; }
+  .contact-section .form-lead .form-privacy { font-size: 0.75rem; }
+}
+
 @media (max-width: 768px) {
+  .contact-section { padding: 40px 0; }
   .contact-grid {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 28px;
+  }
+  .contact-left {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 24px;
+    align-items: start;
+    text-align: left;
+  }
+  .contact-brand { grid-column: 1; grid-row: 1; font-size: 2rem; }
+  .contact-desc { display: none; }
+  .contact-schedule { grid-column: 1; grid-row: 2; font-size: 0.9rem; margin-bottom: 0; align-self: start; }
+  .contact-video-wrap { display: none; }
+  .contact-messengers-title { grid-column: 2; grid-row: 1; margin-bottom: 8px; }
+  .contact-messengers {
+    grid-column: 2;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 16px;
+    justify-content: start;
   }
   .contact-grid .form-lead {
     justify-self: stretch;
     min-width: 0;
+    padding: 18px 20px;
+  }
+  .contact-section .form-lead input,
+  .contact-section .form-lead textarea {
+    padding: 12px 14px;
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  .contact-section .form-lead .form-privacy { font-size: 0.72rem; margin: 10px 0 12px; }
+  .contact-section .form-lead button[type="submit"] {
+    padding: 12px 20px;
+    font-size: 0.95rem;
   }
 }
+
+@media (max-width: 480px) {
+  .contact-section { padding: 32px 0; }
+  .contact-section .container { padding-left: 16px; padding-right: 16px; }
+  .contact-left {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 16px;
+    text-align: left;
+  }
+  .contact-brand { grid-column: 1; grid-row: 1; font-size: 2rem; }
+  .contact-desc { display: none; }
+  .contact-schedule { grid-column: 2; grid-row: 1; font-size: 0.85rem; align-self: center; }
+  .contact-messengers-title { grid-column: 1 / -1; grid-row: 2; margin-bottom: 8px; }
+  .contact-messengers {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    justify-content: flex-start;
+  }
+  .contact-schedule { font-size: 0.85rem; }
+  .contact-messengers { gap: 10px 16px; }
+  .contact-messenger-link { font-size: 0.85rem; }
+  .contact-messenger-icon { width: 20px; height: 20px; }
+  .contact-grid .form-lead { padding: 16px; border-radius: 10px; }
+  .contact-section .form-lead input,
+  .contact-section .form-lead textarea {
+    padding: 11px 12px;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .contact-section .form-lead .form-privacy { font-size: 0.7rem; }
+  .contact-section .form-lead button[type="submit"] {
+    padding: 11px 16px;
+    font-size: 0.9rem;
+  }
+}
+
 .form-lead {
   background: rgba(255, 255, 255, 0.95);
   padding: 24px;
@@ -1561,7 +1673,7 @@ a.icon-btn { text-decoration: none; }
 }
 .footer-top {
   display: grid;
-  grid-template-columns: 1fr auto auto auto;
+  grid-template-columns: 1fr;
   align-items: start;
   width: 100%;
   max-width: 1200px;

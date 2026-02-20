@@ -288,11 +288,17 @@
       inp.addEventListener('change', updateNextButtonImmediate);
       inp.addEventListener('change', function autoAdvanceOnSelect(ev) {
         if (current >= totalSlides) return;
-        if (current === 2 || current === 4) return;
         var target = ev.target;
-        if (target.value === 'other' || target.value === 'date') return;
         var checked = target.type === 'radio' ? true : target.checked;
         if (!checked) return;
+        if (current === 4) return;
+        if (current === 2) {
+          if (target.value === 'no' && isSlideValid(current)) {
+            setTimeout(function() { goTo(current + 1); }, 80);
+          }
+          return;
+        }
+        if (target.value === 'other' || target.value === 'date') return;
         if (hasCustomSelected(current)) return;
         if (isSlideValid(current)) {
           setTimeout(function() { goTo(current + 1); }, 80);
