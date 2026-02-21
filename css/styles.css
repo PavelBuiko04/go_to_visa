@@ -1079,11 +1079,11 @@ a.icon-btn { text-decoration: none; }
 }
 
 @media (max-width: 768px) {
-  .trust-bus { top: 50%; left: 20%; height: 80px;}
+  .trust-bus { top: 50%; left: 20%; height: 100px;}
 }
 
 @media (max-width: 480px) {
-  .trust-bus { top: 50%; left: 20%; height: 60px;}
+  .trust-bus { top: 50%; left: 20%; height: 100px;}
 }
 
 .trust-section .section-title {
@@ -1096,6 +1096,7 @@ a.icon-btn { text-decoration: none; }
   text-align: center;
 }
 .trust-years {
+  padding: 3px;
   position: absolute;
   z-index: 1;
   right: 24px;
@@ -1284,11 +1285,7 @@ a.icon-btn { text-decoration: none; }
   }
 }
 
-/* Слайдер отзывов на 768px */
-.reviews-slider-nav {
-  display: flex;
-  gap: 8px;
-}
+/* Слайдер отзывов */
 .reviews-slider {
   position: relative;
 }
@@ -1296,18 +1293,25 @@ a.icon-btn { text-decoration: none; }
   flex-shrink: 0;
   width: 44px;
   height: 44px;
+  padding: 0;
   border: 2px solid rgba(37, 99, 235, 0.3);
   border-radius: 50%;
   background: var(--white);
   color: var(--blue);
-  font-size: 1.4rem;
-  line-height: 1;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: background var(--transition), border-color var(--transition), color var(--transition);
 }
 .reviews-slider-btn:hover {
   background: #EFF6FF;
   border-color: var(--blue);
+}
+.reviews-slider-icon {
+  width: 22px;
+  height: 22px;
+  display: block;
 }
 .reviews-slider-track {
   flex: 1;
@@ -1316,11 +1320,21 @@ a.icon-btn { text-decoration: none; }
 }
 
 @media (min-width: 769px) {
-  .trust-reviews-header { justify-content: center; }
-  .reviews-slider-nav { display: none; }
+  .trust-reviews-header {
+    display: flex;
+    justify-content: center;
+  }
+  .trust-reviews-header .reviews-slider-btn { display: none; }
 }
 
 @media (max-width: 768px) {
+  .trust-reviews-header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 16px;
+  }
+  .trust-reviews-title { justify-self: center; text-align: center; }
   .reviews-slider-track {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
