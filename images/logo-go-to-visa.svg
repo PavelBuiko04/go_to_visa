@@ -1,9 +1,13 @@
-<svg viewBox="0 0 140 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .logo-text { font-family: 'Caveat Brush', cursive; }
-    .logo-go { font-size: 22px; fill: #2B2B2B; }
-    .logo-visa { font-size: 32px; fill: #2563EB; }
-  </style>
-  <text class="logo-text logo-go" x="2" y="26">Go to</text>
-  <text class="logo-text logo-visa" x="0" y="48">Visa</text>
+<svg viewBox="0 0 160 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&amp;display=swap');
+      .logo-text { font-family: 'Caveat Brush', cursive; font-weight: 400; }
+      .logo-go { font-size: 26px; fill: #2B2B2B; }
+      .logo-visa { font-size: 38px; fill: #2563EB; }
+    </style>
+  </defs>
+  <text class="logo-text logo-go" x="2" y="28">Go to</text>
+  <text class="logo-text logo-visa" x="0" y="58">Visa</text>
 </svg>
+
