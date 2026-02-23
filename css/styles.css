@@ -573,10 +573,18 @@ a.icon-btn { text-decoration: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: left center;
 }
 .quiz-option-country.quiz-option-other .quiz-country-heart img {
   object-fit: cover;
+  object-position: left center;
+}
+.quiz-option-country.quiz-flag-center .quiz-country-heart img {
   object-position: center;
+}
+.quiz-option-country.quiz-flag-center:has(input[value="Италия"]) .quiz-country-heart img,
+.quiz-option-country.quiz-flag-center:has(input[value="Франция"]) .quiz-country-heart img {
+  height: 90%;
 }
 .quiz-option-country:has(input:checked) .quiz-country-heart {
   box-shadow: 0 0 0 2px var(--blue);
@@ -874,6 +882,17 @@ a.icon-btn { text-decoration: none; }
   z-index: 0;
 }
 .help-block .container { position: relative; z-index: 1; }
+
+@media (max-width: 1250px) {
+  .help-block::after { display: none; }
+  .help-block::before {
+    width: 100%;
+    min-width: 0;
+    background-position: left center;
+    background-size: cover;
+  }
+}
+
 .help-title {
   margin: 0 0 40px;
   font-size: clamp(1.6rem, 3vw, 2.1rem);
@@ -1360,7 +1379,7 @@ a.icon-btn { text-decoration: none; }
 }
 
 @media (max-width: 600px) {
-  .trust-years { top: -10%; }
+  .trust-years { top: -17%; }
   .trust-discount { top: -15%; }
   .reviews-grid.reviews-grid-images > * {
     width: min(260px, calc(100vw - 100px));
