@@ -3,26 +3,32 @@ const toIco = require('to-ico');
 const fs = require('fs');
 const path = require('path');
 
-const svgPath = path.join(__dirname, '..', 'favicon.svg');
+const outDir = path.join(__dirname, '..');
+const pngSource = path.join(outDir, 'favicon-source.png');
+const svgPath = path.join(outDir, 'favicon.svg');
+
 const sizes = [
   { name: 'favicon-16x16.png', size: 16 },
   { name: 'favicon-32x32.png', size: 32 },
+  { name: 'favicon.png', size: 32 },
   { name: 'apple-touch-icon.png', size: 180 },
 ];
 
-const outDir = path.join(__dirname, '..');
-
 async function generate() {
-  const svg = fs.readFileSync(svgPath);
+  let input;
+  if (fs.existsSync(pngSource)) {
+    input = sharp(fs.readFileSync(pngSource));
+  } else if (fs.existsSync(svgPath)) {
+    input = sharp(fs.readFileSync(svgPath));
+  } else {
+    throw new Error('Need favicon-source.png or favicon.svg in project root');
+  }
   const pngBuffers = [];
   for (const { name, size } of sizes) {
-    const buffer = await sharp(svg)
-      .resize(size, size)
-      .png()
-      .toBuffer();
+    const buffer = await input.clone().resize(size, size).png().toBuffer();
     fs.writeFileSync(path.join(outDir, name), buffer);
     console.log('Created:', name);
-    if (size <= 32) pngBuffers.push(buffer);
+    if (name === 'favicon-16x16.png' || name === 'favicon-32x32.png') pngBuffers.push(buffer);
   }
   const ico = await toIco(pngBuffers);
   fs.writeFileSync(path.join(outDir, 'favicon.ico'), ico);
