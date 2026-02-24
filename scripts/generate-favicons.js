@@ -5,7 +5,6 @@ const path = require('path');
 
 const outDir = path.join(__dirname, '..');
 const pngSource = path.join(outDir, 'favicon-source.png');
-const svgPath = path.join(outDir, 'favicon.svg');
 
 const sizes = [
   { name: 'favicon-16x16.png', size: 16 },
@@ -15,14 +14,10 @@ const sizes = [
 ];
 
 async function generate() {
-  let input;
-  if (fs.existsSync(pngSource)) {
-    input = sharp(fs.readFileSync(pngSource));
-  } else if (fs.existsSync(svgPath)) {
-    input = sharp(fs.readFileSync(svgPath));
-  } else {
-    throw new Error('Need favicon-source.png or favicon.svg in project root');
+  if (!fs.existsSync(pngSource)) {
+    throw new Error('Need favicon-source.png in project root');
   }
+  const input = sharp(fs.readFileSync(pngSource));
   const pngBuffers = [];
   for (const { name, size } of sizes) {
     const buffer = await input.clone().resize(size, size).png().toBuffer();
