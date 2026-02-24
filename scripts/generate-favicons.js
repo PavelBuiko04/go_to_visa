@@ -3,8 +3,9 @@ const toIco = require('to-ico');
 const fs = require('fs');
 const path = require('path');
 
-const outDir = path.join(__dirname, '..');
-const pngSource = path.join(outDir, 'favicon-source.png');
+const rootDir = path.join(__dirname, '..');
+const outDir = path.join(rootDir, 'i');
+const pngSource = path.join(rootDir, 'favicon-source.png');
 
 const sizes = [
   { name: 'favicon-16x16.png', size: 16 },
@@ -17,6 +18,7 @@ async function generate() {
   if (!fs.existsSync(pngSource)) {
     throw new Error('Need favicon-source.png in project root');
   }
+  if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
   const input = sharp(fs.readFileSync(pngSource));
   const pngBuffers = [];
   for (const { name, size } of sizes) {
