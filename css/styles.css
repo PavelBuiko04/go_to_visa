@@ -1432,8 +1432,8 @@ a.icon-btn { text-decoration: none; }
 }
 .form textarea { resize: vertical; min-height: 80px; }
 .form-privacy { margin: 12px 0 14px 0; font-size: 0.8rem; color: var(--dark-gray); opacity: 0.75; }
-.form-privacy-link { color: inherit; text-decoration: none; border-bottom: 1px solid currentColor; cursor: var(--cursor-pointer); }
-.form-privacy-link:hover { text-decoration: none; border-bottom-color: transparent; opacity: 1; }
+.form-privacy-link { color: inherit; text-decoration: underline; cursor: var(--cursor-pointer); }
+.form-privacy-link:hover { opacity: 0.85; }
 
 /* ===== Отзывы ===== */
 .reviews { background: var(--purple-light); }
@@ -1555,7 +1555,35 @@ a.icon-btn { text-decoration: none; }
   line-height: 1.5;
   opacity: 0.95;
 }
-.contact-video-wrap {
+.contact-email {
+  margin: 0 0 20px;
+  font-size: 0.95rem;
+  opacity: 0.95;
+}
+.contact-email-link {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+.contact-email-link:hover {
+  opacity: 0.9;
+}
+.contact-phone-mobile {
+  display: none;
+  margin: 0 0 20px;
+  font-size: 0.95rem;
+  opacity: 0.95;
+}
+.contact-phone-link {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+.contact-phone-link:hover {
+  opacity: 0.9;
+}
+.contact-video-wrap,
+.contact-image-wrap {
   margin-top: 8px;
   margin-bottom: 20px;
   border-radius: 12px;
@@ -1568,6 +1596,13 @@ a.icon-btn { text-decoration: none; }
   height: auto;
   aspect-ratio: 16/9;
   object-fit: cover;
+}
+.contact-illustration {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  object-fit: contain;
 }
 .contact-messengers-title {
   color: var(--white);
@@ -1658,7 +1693,8 @@ a.icon-btn { text-decoration: none; }
   .contact-brand { grid-column: 1; grid-row: 1; font-size: 2rem; }
   .contact-desc { display: none; }
   .contact-schedule { grid-column: 1; grid-row: 2; font-size: 0.9rem; margin-bottom: 0; align-self: start; }
-  .contact-video-wrap { display: none; }
+  .contact-video-wrap,
+  .contact-image-wrap { display: none; }
   .contact-messengers-title { grid-column: 2; grid-row: 1; margin-bottom: 8px; }
   .contact-messengers {
     grid-column: 2;
@@ -2255,6 +2291,7 @@ a.icon-btn { text-decoration: none; }
 @media (max-width: 1024px) {
   .reviews-grid:not(.reviews-grid-images) { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
   .header-actions .header-phone { display: none; }
+  .contact-phone-mobile { display: block; }
 }
 
 @media (max-width: 768px) {
@@ -2293,9 +2330,22 @@ a.icon-btn { text-decoration: none; }
 /* ===== Страница Политики конфиденциальности ===== */
 .privacy-main { padding: 48px 0 80px; background: var(--white); }
 .privacy-article { max-width: 720px; margin: 0 auto; }
+.privacy-approved {
+  margin: 52px 0 24px;
+  font-size: 0.95rem;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+.consent-subtitle {
+  margin: 0 0 28px;
+  font-size: 0.95rem;
+  opacity: 0.9;
+  color: var(--dark-gray);
+}
 .privacy-title {
-  margin: 80px 0 32px;
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin: 52px 0 32px;
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+  line-height: 1.35;
   font-weight: 700;
   color: var(--dark-gray);
 }
@@ -2314,10 +2364,89 @@ a.icon-btn { text-decoration: none; }
   line-height: 1.65;
   color: var(--dark-gray);
 }
-.privacy-section ul {
+.privacy-section ul,
+.privacy-section ol {
   margin: 0 0 12px;
   padding-left: 24px;
 }
+.privacy-section ol { list-style-type: decimal; }
 .privacy-section a { color: var(--purple); text-decoration: none; }
 .privacy-section a:hover { text-decoration: underline; }
+
+/* Модальное окно: согласие на обработку персональных данных */
+.consent-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.consent-modal[hidden] {
+  display: none;
+}
+.consent-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+.consent-modal-box {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  max-height: 90vh;
+  overflow: auto;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  padding: 28px 32px 32px;
+}
+.consent-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--dark-gray);
+  cursor: pointer;
+  border-radius: 4px;
+}
+.consent-modal-close:hover {
+  background: var(--light-gray);
+  color: #111;
+}
+.consent-modal-title {
+  margin: 0 0 4px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111;
+}
+.consent-modal-subtitle {
+  margin: 0 0 20px;
+  font-size: 0.9rem;
+  color: var(--dark-gray);
+}
+.consent-modal-body {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #333;
+}
+.consent-modal-body p {
+  margin: 0 0 14px;
+}
+.consent-modal-body ul {
+  margin: 0 0 14px;
+  padding-left: 22px;
+}
+.consent-modal-body li {
+  margin-bottom: 6px;
+}
 

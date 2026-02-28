@@ -21,7 +21,7 @@ Built as a **portfolio piece** to demonstrate semantic HTML, vanilla JavaScript 
 
 | Feature | Description |
 |--------|-------------|
-| **Hero + video** | Video background in header, animated airplane banner with "53 000+" stat |
+| **Hero + video** | Video background in header |
 | **Interactive quiz** | 5-step flow: number of people, visas in last 3 years, trip date, countries, contact info. Validation, country autocomplete, confetti on completion |
 | **Visa catalog** | Country cards (Spain, Greece, Italy, France, Germany) with illustrations |
 | **Testimonials** | 6 chat screenshots in framed cards with hover effects |
@@ -56,10 +56,9 @@ Built as a **portfolio piece** to demonstrate semantic HTML, vanilla JavaScript 
 │   └── styles.css      # Styles (~1800 lines)
 ├── js/
 │   ├── main.js         # Header, menu, forms, quiz, scroll
-│   ├── countries-ru.js # Country autocomplete data
-│   └── catalog.js      # Catalog scripts
+│   └── countries-ru.js # Country autocomplete data
 ├── images/             # Assets: testimonials, quiz, catalog, logos
-├── videos/             # Hero, contact, airplane videos
+├── videos/             # Hero, contact videos
 ├── google-apps-script/ # Google Sheets backend
 ├── scripts/            # Favicon generation (Node.js)
 └── package.json        # npm: sharp, to-ico for favicons
